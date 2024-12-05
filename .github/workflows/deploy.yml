@@ -23,11 +23,9 @@ jobs:
       - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: '<Your Site ID>' # Netlify에서 제공된 Site ID
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
           npm install -g netlify-cli
-          if [ "${{ github.ref_name }}" = "main" ]; then
-            netlify deploy --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID --prod --message "Production Deploy from main"
-          elif [ "${{ github.ref_name }}" = "develop" ]; then
-            netlify deploy --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID --branch=develop --message "Develop Deploy"
-          fi
+          URL=$(netlify deploy --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID --message "Develop branch deploy for testing" --json | jq -r .deploy_url)
+          echo "Deploy URL: $URL"
+          echo "TEST_DEPLOY_URL=$URL" >> $GITHUB_ENV
