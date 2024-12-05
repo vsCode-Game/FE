@@ -1,7 +1,7 @@
 name: Netlify Deploy
 
 on:
-  push:
+  pull_request:
     branches:
       - main # 프로덕션 배포
       - develop # 테스트 배포
