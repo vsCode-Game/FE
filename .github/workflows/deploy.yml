@@ -14,9 +14,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Node.js 캐시 설정
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       # 의존성 설치
       - name: Install dependencies
         run: npm install
+
+      # Netlify CLI 캐시 설정
+      - name: Cache Netlify CLI
+        uses: actions/cache@v3
+        with:
+          path: ~/.netlify
+          key: ${{ runner.os }}-netlify-cli
+          restore-keys: |
+            ${{ runner.os }}-netlify-
+
+      # Netlify CLI 설치
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
 
       # 프로젝트 빌드
       - name: Build project
@@ -28,8 +50,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          npm install -g netlify-cli
-          DEPLOY_OUTPUT=$(netlify deploy --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID --message "Deploy for PR to develop" --json)
+          DEPLOY_OUTPUT=$(netlify deploy —auth=$NETLIFY_AUTH_TOKEN —site=$NETLIFY_SITE_ID —message "Deploy for PR" —json)
           DEPLOY_URL=$(echo $DEPLOY_OUTPUT | jq -r .deploy_url)
           echo "Deploy URL: $DEPLOY_URL"
           echo "TEST_DEPLOY_URL=$DEPLOY_URL" >> $GITHUB_ENV
@@ -39,7 +60,7 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           curl -s -X POST \
-            -H "Authorization: token ${{ secrets.MY_PAT }}" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments \
-            -d '{"body": "Test site deployed: '"$TEST_DEPLOY_URL"'"}'
+            -d '{"body": "🚀 Test site deployed: '"$TEST_DEPLOY_URL"'"}'
