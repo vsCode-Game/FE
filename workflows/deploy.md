@@ -1,14 +1,12 @@
 name: Netlify Deploy
 
 on:
-  push:
-    branches:
-      - main # 프로덕션 배포
-      - develop # 테스트 배포
+push:
+branches: - main # 프로덕션 배포 - develop # 테스트 배포
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+deploy:
+runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
