@@ -1,14 +1,12 @@
 name: Netlify Deploy (Pull Request)
 
 on:
-  pull_request:
-    branches:
-      - main # main 브랜치에 PR이 열리면 실행
-      - develop # develop 브랜치에 PR이 열리면 실행
+pull_request:
+branches: - main # main 브랜치에 PR이 열리면 실행 - develop # develop 브랜치에 PR이 열리면 실행
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+deploy:
+runs-on: ubuntu-latest
 
     steps:
       # 코드 체크아웃
