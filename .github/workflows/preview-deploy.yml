@@ -23,12 +23,16 @@ jobs:
       - name: Build application
         run: npm run build
 
-      # 4. S3에 미리보기 배포
+      # 4. 빌드 디렉터리 확인
+      - name: Check build directory
+        run: ls -al ./dist
+
+      # 5. S3에 미리보기 배포
       - name: Deploy to S3
         run: |
-          aws s3 sync ./build s3://your-preview-bucket/pr-${{ github.event.number }} --delete
+          aws s3 sync ./dist s3://your-preview-bucket/pr-${{ github.event.number }} --delete
 
-      # 5. PR에 미리보기 URL 등록
+      # 6. PR에 미리보기 URL 등록
       - name: Add Preview URL to PR
         uses: thollander/actions-comment-pull-request@v1
         with:
