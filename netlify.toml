@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "https://davincicodegame.store/*"
-  to = "https://www.davincicodegame.store/:splat"
-  status = 301
-  force = true
