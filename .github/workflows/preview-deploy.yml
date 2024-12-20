@@ -34,7 +34,7 @@ jobs:
       # 5. S3에 미리보기 배포
       - name: Deploy to S3
         run: |
-          aws s3 sync ./dist s3://davinci-preview-bucket/pr-${{ github.event.number }} --delete
+          aws s3 sync ./dist s3://your-preview-bucket/pr-${{ github.event.number }} --acl public-read --delete
 
       - name: Checkout code
         uses: actions/checkout@v2
