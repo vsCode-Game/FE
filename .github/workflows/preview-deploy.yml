@@ -15,17 +15,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # 2. 의존성 설치
+      # 2. AWS 인증 정보 설정
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # 3. 의존성 설치
       - name: Install dependencies
         run: npm install
 
-      # 3. 빌드 실행
+      # 4. 빌드 실행
       - name: Build application
         run: npm run build
-
-      # 4. 빌드 디렉터리 확인
-      - name: Check build directory
-        run: ls -al ./dist
 
       # 5. S3에 미리보기 배포
       - name: Deploy to S3
