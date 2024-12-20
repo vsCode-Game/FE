@@ -36,9 +36,13 @@ jobs:
         run: |
           aws s3 sync ./dist s3://davinci-preview-bucket/pr-${{ github.event.number }} --delete
 
-      # 6. PR에 미리보기 URL 등록
-      - name: Add Preview URL to PR
-        uses: thollander/actions-comment-pull-request@v1
-        with:
-          message: "Preview available at: https://davinci-preview-bucket.s3.amazonaws.com/pr-${{ github.event.number }}/"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. PR에 코멘트 추가
+      - name: Add comment to PR
+        run: |
+          curl -H "Authorization: token ${{ secrets.MY_PAT }}" \
+                -H "Content-Type: application/json" \
+                -d '{"body": "Preview available at: https://example.com"}' \
+                "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
