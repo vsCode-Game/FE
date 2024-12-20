@@ -42,7 +42,8 @@ jobs:
       # 2. PR에 코멘트 추가
       - name: Add comment to PR
         run: |
+          PREVIEW_URL="https://davinci-preview-bucket.s3.ap-northeast-2.amazonaws.com/pr-${{ github.event.number }}/"
           curl -H "Authorization: token ${{ secrets.MY_PAT }}" \
-                -H "Content-Type: application/json" \
-                -d '{"body": "Preview available at: https://example.com"}' \
-                "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
+               -H "Content-Type: application/json" \
+               -d "{\"body\": \"Preview available at: $PREVIEW_URL\"}" \
+               "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
