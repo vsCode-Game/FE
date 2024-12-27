@@ -1,13 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default defineConfig(({ mode }) => ({
-  plugins: [react()],
-  define: {
-    "process.env": process.env,
-  },
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    react({
+      jsxImportSource: "react", // React 자동 import 비활성화
+    }),
+  ],
   build: {
-    outDir: mode === "production" ? "build" : "staging",
+    outDir: "build", // 빌드 결과물을 'build' 디렉터리에 생성
   },
   resolve: {
     alias: [
