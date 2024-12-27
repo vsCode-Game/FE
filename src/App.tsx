@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import Header from "@components/layout/header/Header";
+import Footer from "@components/layout/footer/Footer";
 import GlobalStyles from "./styles/GlobalStyle";
+import "@styles/font.css";
 
 function App() {
   return (
