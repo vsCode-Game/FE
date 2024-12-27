@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
 
   :root {
     background-color: #fff;
-    /* color */
+    /* variables */
     --color-primary: #44FF92;
     --color-secondary: #2571FF;
     --color-rose: #FF5E5E;
@@ -28,6 +28,9 @@ const GlobalStyles = createGlobalStyle`
     --radius-sm: 12px;
     --radius-md: 14px;
     --radius-lg: 50%; 
+
+    width: 100vw;
+    height: 100vh;
   }
 
   *{
