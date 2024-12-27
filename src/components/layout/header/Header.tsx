@@ -1,10 +1,14 @@
 import logo from "@assets/images/logo.svg";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyledHeader, NavList, Logo } from "./HeaderStyle.ts";
 
 export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 임시 login 상태
+
+  useEffect(() => {
+    setIsLoggedIn(false);
+  }, []);
 
   return (
     <>
