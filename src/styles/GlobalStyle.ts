@@ -2,16 +2,34 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
+
   :root {
-    background-color: #fffdee;
+    background-color: #fff;
     /* color */
-    --color-main: #5A8900;
-    --color-black: #222;
-    --color-white: #fff;
-    --color-warning: #ff9191;
-    --color-grey: #d9d9d9;
-    --color-sub: #CD7522;
+    --color-primary: #44FF92;
+    --color-secondary: #2571FF;
+    --color-rose: #FF5E5E;
+    --color-warning: #FF5E5E;
+    --color-yellow-100: #FFF740;
+    --color-yellow-500: #FFFBA6;
+    --color-yellow-900: #FFFDD7;
+    --color-gray-0: #FFFFFF;
+    --color-gray-100: #F8F8F8;
+    --color-gray-200: #E4E4E4;
+    --color-gray-300: #C5C5C5;
+    --color-gray-400: #949494;
+    --color-gray-500: #7F7F7F;
+    --color-gray-600: #6C6C6C;
+    --color-gray-700: #454545;
+    --color-gray-800: #232323;
+    --color-gray-900: #121212;
+    --color-gray-999: #000000;
+    --shadow: 1px 1px 5px 0 rgba(176, 176, 176, 0.5);
+    --radius-sm: 12px;
+    --radius-md: 14px;
+    --radius-lg: 50%; 
   }
+
   *{
     box-sizing: border-box;
   }
@@ -33,7 +51,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     border: 0;
     font-size: 100%;
-   font-family: 'Pretendard Regular';
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -44,7 +61,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     line-height: 1;
   }
-  ol, ul {
+  li {
     list-style: none;
   }
   blockquote, q {
@@ -60,9 +77,8 @@ const GlobalStyles = createGlobalStyle`
     border-spacing: 0;
   }
   button {
+    all: unset;
     cursor: pointer;
-    background: none;
-    border: none;
   }
   input {
     background: none;
@@ -81,14 +97,19 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
   body {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-text-size-adjust: none; /* Chrome, Safari, Opera */
   -ms-text-size-adjust: none; /* IE */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
   height: 100%; /* Prevent vertical bounce and set height to full view */
-  margin: 0;
-  padding: 0;
+  margin: unset;
+  padding: unset;
 }
 `;
 
