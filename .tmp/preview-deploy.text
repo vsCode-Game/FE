@@ -1,0 +1,49 @@
+name: Deploy Preview for PRs
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 코드 체크아웃
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. AWS 인증 정보 설정
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      # 3. 의존성 설치
+      - name: Install dependencies
+        run: yarn install
+
+      # 4. 빌드 실행
+      - name: Build application
+        run: yarn build
+
+      # 5. S3에 미리보기 배포
+      - name: Deploy to S3
+        run: |
+          aws s3 sync ./dist s3://your-preview-bucket/pr-${{ github.event.number }} --acl public-read --delete
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. PR에 코멘트 추가
+      - name: Add comment to PR
+        run: |
+          PREVIEW_URL="https://davinci-preview-bucket.s3.ap-northeast-2.amazonaws.com/pr-${{ github.event.number }}/"
+          curl -H "Authorization: token ${{ secrets.MY_PAT }}" \
+               -H "Content-Type: application/json" \
+               -d "{\"body\": \"Preview available at: $PREVIEW_URL\"}" \
+               "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
