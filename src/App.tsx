@@ -9,7 +9,6 @@ function App() {
       <GlobalStyles />
       <Header />
       <Outlet />
-
       <Footer />
     </>
   );
