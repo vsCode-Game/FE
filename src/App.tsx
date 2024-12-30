@@ -20,4 +20,5 @@ export default App;
 
 const OuterStyle = styled(Outlet)`
   padding: 200px 0 100px 0;
+  height: 100vh;
 `;
