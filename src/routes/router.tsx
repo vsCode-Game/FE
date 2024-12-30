@@ -4,6 +4,7 @@ import Login from "@pages/user/login/Login";
 import Ranking from "@pages/rank/Ranking";
 import SignUp from "@pages/user/signUp/SignUp";
 import Layout from "../components/layout/layout/Layout";
+import GameRoomList from "@pages/game/gameRoomList";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "/rank",
         element: <Ranking />,
+      },
+      {
+        path: "/game/list",
+        element: <GameRoomList />,
       },
     ],
   },
