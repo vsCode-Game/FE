@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IBadgeProps } from "./badge_props";
 
 export const Badge = styled.div<IBadgeProps>`
   width: 100%;
