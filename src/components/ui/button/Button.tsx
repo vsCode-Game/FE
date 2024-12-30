@@ -6,7 +6,7 @@ export default function Button({
   onClickFnc,
   type = "button",
   disabled = false,
-  style,
+  size,
   bgColor,
   textColor,
 }: IButtonProps) {
@@ -15,7 +15,7 @@ export default function Button({
       type={type}
       onClick={onClickFnc}
       disabled={disabled}
-      style={style}
+      size={size}
       bgColor={bgColor}
       textColor={textColor}
     >

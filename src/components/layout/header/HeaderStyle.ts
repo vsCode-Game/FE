@@ -10,6 +10,8 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 55px 30px 0;
+  position: fixed;
+  width: 100vw;
 `;
 
 export const Logo = styled.h1`
