@@ -5,9 +5,10 @@ export const Button = styled.button<IButtonProps>`
   width: 100%;
   border-radius: 50px;
   border: 1px solid #000000;
+  text-align: center;
 
-  ${({ style }) => {
-    switch (style) {
+  ${({ size }) => {
+    switch (size) {
       case "xl":
         return `
           height: 80px;
