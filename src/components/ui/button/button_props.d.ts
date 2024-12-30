@@ -6,6 +6,6 @@ interface IButtonProps {
   type: "button" | "submit" | "reset";
   disabled?: boolean;
   size: "xl" | "l" | "md" | "sm" | "xs";
-  bgColor: "black" | "green" | "red" | "white" | "blue";
-  textColor: "black" | "gray" | "white";
+  bgcolor: "black" | "green" | "red" | "white" | "blue";
+  textcolor: "black" | "gray" | "white";
 }
