@@ -1,23 +1,15 @@
-import { Outlet } from "react-router-dom";
-import Header from "@components/layout/header/Header";
-import Footer from "@components/layout/footer/Footer";
-import GlobalStyles from "./styles/GlobalStyle";
 import "@styles/font.css";
-import styled from "styled-components";
+import GlobalStyles from "./styles/GlobalStyle";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/router";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Header />
-      <OuterStyle />
-      <Footer />
+      <RouterProvider router={router} />
     </>
   );
 }
 
 export default App;
-
-const OuterStyle = styled(Outlet)`
-  padding: 200px 0 100px 0;
-`;
