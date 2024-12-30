@@ -2,7 +2,7 @@ import styled from "styled-components";
 import BadgeYellow from "../badge/BadgeYellow";
 
 const CardListForm = styled.div`
-  width: 100%;
+  width: 500px;
   position: relative;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -40,7 +40,8 @@ const Button = styled.button`
   box-sizing: border-box;
   height: 50px;
   margin-top: 40px;
-  margin-left: 228px;
+  margin-left: 290px;
+  text-align: center;
 `;
 export default function CardList() {
   return (
