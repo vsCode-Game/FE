@@ -1,4 +1,4 @@
-interface IInputProps {
-  type: "text";
-  keyname: string;
+interface IInputProps<P> {
+  type: HTMLInputTypeAttribute;
+  keyname: Path<P>;
 }

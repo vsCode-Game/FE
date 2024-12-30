@@ -3,26 +3,29 @@ import styled from "styled-components";
 export const container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100%;
   gap: 50px;
+  margin-top: 20px;
 `;
 
 export const loginBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
   width: 400px;
 `;
 export const label = styled.label`
   font-weight: 500;
   font-size: 18px;
-  color: #000000;
+  color: var(--color-gray-999);
 `;
 
 export const title = styled.div`
   font-weight: 700;
   font-size: 32px;
-  color: #000000;
+  color: var(--color-gray-999);
 `;
 
 export const inputBox = styled.div`
@@ -47,5 +50,5 @@ export const form = styled.form`
 `;
 
 export const errorMessage = styled.div`
-  color: red;
+  color: var(--color-warning);
 `;

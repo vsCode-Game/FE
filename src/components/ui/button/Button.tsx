@@ -5,10 +5,10 @@ export default function Button({
   children,
   onClickFnc,
   type = "button",
-  disabled = false,
+  disabled,
   size,
-  bgColor,
-  textColor,
+  bgcolor,
+  textcolor,
 }: IButtonProps) {
   return (
     <S.Button
@@ -16,8 +16,8 @@ export default function Button({
       onClick={onClickFnc}
       disabled={disabled}
       size={size}
-      bgColor={bgColor}
-      textColor={textColor}
+      bgcolor={bgcolor}
+      textcolor={textcolor}
     >
       {children}
     </S.Button>
