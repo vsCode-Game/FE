@@ -3,11 +3,10 @@ import styled from "styled-components";
 export const container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
   width: 100%;
   gap: 50px;
+  margin-top: 20px;
 `;
 
 export const loginBox = styled.div`
