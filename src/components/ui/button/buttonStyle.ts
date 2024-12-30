@@ -4,7 +4,7 @@ import { IButtonProps } from "./button_props";
 export const Button = styled.button<IButtonProps>`
   width: 100%;
   border-radius: 50px;
-  border: 1px solid #000000;
+  border: 1px solid var(--color-gray-999);
   text-align: center;
 
   ${({ size }) => {
@@ -48,8 +48,8 @@ export const Button = styled.button<IButtonProps>`
     }
   }};
 
-  ${({ bgColor }) => {
-    switch (bgColor) {
+  ${({ bgcolor }) => {
+    switch (bgcolor) {
       case "black":
         return `
           background: #000000;
@@ -77,8 +77,8 @@ export const Button = styled.button<IButtonProps>`
     }
   }}
 
-  ${({ textColor }) => {
-    switch (textColor) {
+  ${({ textcolor }) => {
+    switch (textcolor) {
       case "black":
         return `
           color: #000000;
