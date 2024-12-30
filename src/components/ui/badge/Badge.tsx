@@ -1,3 +1,4 @@
+
 // import * as S from "./badgeStyle";
 
 // export default function Badge({ bgColor }: IBadgeProps) {
