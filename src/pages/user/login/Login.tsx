@@ -4,7 +4,6 @@ import Button from "../../../components/ui/button/Button";
 import * as S from "./LoginStyle";
 import { loginSchema, schema } from "./schema";
 import Input from "../../../components/ui/input/Input";
-import Badge from "../../../components/ui/badge/Badge";
 
 export default function LoginPage() {
   const methods = useForm<loginSchema>({
