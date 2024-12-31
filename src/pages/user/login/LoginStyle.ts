@@ -6,7 +6,6 @@ export const container = styled.div`
   align-items: center;
   width: 100%;
   gap: 50px;
-  margin-top: 20px;
 `;
 
 export const loginBox = styled.div`
@@ -22,7 +21,7 @@ export const label = styled.label`
   color: var(--color-gray-999);
 `;
 
-export const title = styled.div`
+export const title = styled.h2`
   font-weight: 700;
   font-size: 32px;
   color: var(--color-gray-999);
