@@ -2,10 +2,13 @@ import styled from "styled-components";
 import { IButtonProps } from "./button_props";
 
 export const Button = styled.button<IButtonProps>`
-  width: 100%;
   border-radius: 50px;
   border: 1px solid var(--color-gray-999);
   text-align: center;
+
+  ${({ width }) => {
+    return `width: ${width ?? "100%"};`;
+  }}
 
   ${({ size }) => {
     switch (size) {
