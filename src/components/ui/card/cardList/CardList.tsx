@@ -1,7 +1,7 @@
 // import BadgeYellow from "../../badge/BadgeYellow";
 // import Nickname from "../../nickname/NickNameBox";
 
-import BadgeYellow from "../../badge/BadgeYellow";
+import Badge from "../../badge/Badge";
 import Nickname from "../../nickname/NickNameBox";
 import { Button, CardListForm, TitleBox } from "./CardListStyle";
 
@@ -38,7 +38,7 @@ export default function CardList() {
   return (
     <CardListForm>
       <div>
-        <BadgeYellow></BadgeYellow>
+        <Badge status="waiting..." />
         <TitleBox>
           스겜 한판 하쉴? ㄱㄱ 1명 선착순 받습니다 빨리오세요 매너겜 하실 분
           환영
