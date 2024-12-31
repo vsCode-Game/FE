@@ -71,16 +71,7 @@ img {
   vertical-align: top;
 }
 
-  body {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-text-size-adjust: none; /* Chrome, Safari, Opera */
-  -ms-text-size-adjust: none; /* IE */
-  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-  margin: unset;
-  padding: unset;
-  width: 100vw;
-  height: 100vh;
-}
+
 
 :root {
   background-color: #fff;
@@ -110,6 +101,25 @@ img {
 
   width: 100vw;
   height: 100vh;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+
+  body {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-text-size-adjust: none; /* Chrome, Safari, Opera */
+  -ms-text-size-adjust: none; /* IE */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  margin: unset;
+  padding: unset;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
 }
 
 *{
