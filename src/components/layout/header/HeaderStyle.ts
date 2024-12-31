@@ -20,7 +20,9 @@ export const Logo = styled.h1`
 
 export const NavList = styled.ul`
   display: flex;
+  align-items: center;
   gap: 20px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+  margin-top: -90px;
 `;
