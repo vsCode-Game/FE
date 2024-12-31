@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 const CardListForm = styled.div`
   width: 500px;
   position: relative;
@@ -14,22 +13,15 @@ const CardListForm = styled.div`
 const TitleBox = styled.div`
   margin-top: 20px;
   margin-bottom: 8px;
+  display: -webkit-box; /* Flex 컨테이너로 설정 */
+  -webkit-box-orient: vertical; /* 텍스트를 세로 방향으로 클램핑 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  text-overflow: ellipsis; /* ... 처리 */
+  -webkit-line-clamp: 2; /* 2줄로 제한 */
+  line-clamp: 2; /* 최신 브라우저 지원 */
+  word-break: break-word; /* 단어가 잘릴 때 줄바꿈 */
 `;
-const ProfileBox = styled.div`
-  display: flex;
-  line-height: 30px;
-  gap: 10px;
-`;
-const Profile = styled.div`
-  width: 30px;
-  position: relative;
-  border: 2px solid #dedfe0;
-  border-radius: 50%;
-  max-width: 100%;
-  overflow: hidden;
-  height: 30px;
-  object-fit: cover;
-`;
+
 const Button = styled.button`
   width: 150px;
   position: relative;
@@ -42,17 +34,4 @@ const Button = styled.button`
   margin-left: 290px;
   text-align: center;
 `;
-export default function CardList() {
-  return (
-    <CardListForm>
-      <div>
-        <TitleBox>스겜 한판 하쉴? ㄱㄱ</TitleBox>
-        <ProfileBox>
-          <Profile></Profile>
-          <div>드루와이키키</div>
-        </ProfileBox>
-      </div>
-      <Button>참여하기</Button>
-    </CardListForm>
-  );
-}
+export { CardListForm, TitleBox, Button };
