@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import BadgeYellow from "../badge/BadgeYellow";
 
 const CardListForm = styled.div`
   width: 500px;
@@ -47,7 +46,6 @@ export default function CardList() {
   return (
     <CardListForm>
       <div>
-        <BadgeYellow></BadgeYellow>
         <TitleBox>스겜 한판 하쉴? ㄱㄱ</TitleBox>
         <ProfileBox>
           <Profile></Profile>
