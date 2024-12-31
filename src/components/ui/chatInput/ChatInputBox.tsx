@@ -1,5 +1,5 @@
 import Button from "../button/Button";
-import * as S from "./chatinputStyle";
+import * as S from "./chatInputStyle";
 
 export default function ChatInputBox() {
   return (

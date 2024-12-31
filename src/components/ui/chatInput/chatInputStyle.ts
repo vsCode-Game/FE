@@ -18,6 +18,7 @@ export const chatInput = styled.input`
 export const buttonBox = styled.div`
   width: 80px;
 `;
+
 export const chatInputBox = styled.div`
   width: 100%;
   display: flex;
