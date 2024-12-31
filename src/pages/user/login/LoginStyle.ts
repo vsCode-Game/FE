@@ -22,7 +22,7 @@ export const label = styled.label`
   color: var(--color-gray-999);
 `;
 
-export const title = styled.div`
+export const title = styled.h2`
   font-weight: 700;
   font-size: 32px;
   color: var(--color-gray-999);
