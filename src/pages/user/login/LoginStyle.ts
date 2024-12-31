@@ -6,7 +6,6 @@ export const container = styled.div`
   align-items: center;
   width: 100%;
   gap: 50px;
-  margin-top: 20px;
 `;
 
 export const loginBox = styled.div`
