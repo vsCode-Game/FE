@@ -4,8 +4,9 @@ import * as S from "./inputStyle";
 export default function Input<I extends FieldValues>({
   type,
   keyname,
+  ...props
 }: IInputProps<I>) {
   const { register } = useFormContext<I>();
 
-  return <S.input type={type} {...register(keyname)}></S.input>;
+  return <S.input type={type} {...register(keyname)} {...props}></S.input>;
 }

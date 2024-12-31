@@ -9,6 +9,7 @@ export default function Button({
   size,
   bgcolor,
   textcolor,
+  width,
 }: IButtonProps) {
   return (
     <S.Button
@@ -18,6 +19,7 @@ export default function Button({
       size={size}
       bgcolor={bgcolor}
       textcolor={textcolor}
+      width={width}
     >
       {children}
     </S.Button>
