@@ -2,8 +2,8 @@
 //   return <div>Page1</div>;
 // }
 
-// import BadgePage from "../../components/ui/badge/BadgePage";
-import CardList from "../../components/ui/card/CardList";
+import CardList from "../../components/ui/card/cardList/CardList";
+// import Nickname from "../../components/ui/card/Nickname";
 
 // import "../../components/ui/badge/BadgeRed.css";
 // export default function BadgeRed() {
@@ -56,11 +56,10 @@ import CardList from "../../components/ui/card/CardList";
 //   );
 // }
 
+// export default function GameRoomList() {
+//   return <CardList />;
+// }
+
 export default function GameRoomList() {
   return <CardList />;
 }
-
-// export default function GameRoomLis() {
-//   return;
-//   <BadgePage />;
-// }
