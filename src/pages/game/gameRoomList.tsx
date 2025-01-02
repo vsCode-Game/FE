@@ -2,7 +2,7 @@
 //   return <div>Page1</div>;
 // }
 
-import CheckBox from "../../components/ui/check_box/CheckBox";
+import CheckBox from "../../components/ui/checkBox/CheckBox";
 // import CheckBox from "../../components/ui/check_box/CheckBox";
 // import Nickname from "../../components/ui/card/Nickname";
 
