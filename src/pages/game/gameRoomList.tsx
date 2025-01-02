@@ -3,7 +3,6 @@
 // }
 
 import CheckBox from "../../components/ui/check_box/CheckBox";
-import RadioButton from "../../components/ui/radio_button/RadioButton";
 // import CheckBox from "../../components/ui/check_box/CheckBox";
 // import Nickname from "../../components/ui/card/Nickname";
 
