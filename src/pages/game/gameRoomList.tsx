@@ -2,7 +2,8 @@
 //   return <div>Page1</div>;
 // }
 
-import CardList from "../../components/ui/card/cardList/CardList";
+import CheckBox from "../../components/ui/check_box/CheckBox";
+// import CheckBox from "../../components/ui/check_box/CheckBox";
 // import Nickname from "../../components/ui/card/Nickname";
 
 // import "../../components/ui/badge/BadgeRed.css";
@@ -61,5 +62,5 @@ import CardList from "../../components/ui/card/cardList/CardList";
 // }
 
 export default function GameRoomList() {
-  return <CardList />;
+  return <CheckBox />;
 }
