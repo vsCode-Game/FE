@@ -11,6 +11,9 @@ import {
   Form,
   FlexCol,
   Flex,
+  Steps,
+  Step,
+  StepActive,
 } from "./SignUpStyle";
 import Button from "../../../components/ui/button/Button";
 
@@ -25,7 +28,10 @@ export default function SignUp() {
   return (
     <SignUpSection>
       <SignUpTitle>회원가입</SignUpTitle>
-      <Flex></Flex>
+      <Steps>
+        <Step>1</Step>
+        <StepActive>2</StepActive>
+      </Steps>
       <FormProvider {...methods}>
         <Form onSubmit={methods.handleSubmit(onClickSubmit)}>
           <FlexCol>
