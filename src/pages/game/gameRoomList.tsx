@@ -2,7 +2,7 @@
 //   return <div>Page1</div>;
 // }
 
-import CheckBox from "../../components/ui/check_box/CheckBox";
+import WaitingPage from "../../components/ui/page/WaitingPage";
 // import CheckBox from "../../components/ui/check_box/CheckBox";
 // import Nickname from "../../components/ui/card/Nickname";
 
@@ -62,5 +62,9 @@ import CheckBox from "../../components/ui/check_box/CheckBox";
 // }
 
 export default function GameRoomList() {
-  return <CheckBox />;
+  return (
+    <WaitingPage>
+      <div></div>
+    </WaitingPage>
+  );
 }
