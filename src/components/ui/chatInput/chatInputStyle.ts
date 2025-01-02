@@ -9,6 +9,7 @@ export const chatInput = styled.input`
   font-weight: 400;
   font-size: 12px;
   border-radius: 14px;
+  background-color: var(--color-gray-0);
 
   &:focus {
     border: 1px solid var(--color-primary);
