@@ -8,8 +8,6 @@ export const StyledFooter = styled.footer`
     rgba(0, 0, 0, 0),
     var(--color-primary) 100%
   );
-  position: fixed;
-  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
