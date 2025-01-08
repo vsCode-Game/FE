@@ -5,6 +5,8 @@ import Ranking from "@pages/rank/Ranking";
 import SignUp from "@pages/user/signUp/SignUp";
 import Layout from "../components/layout/layout/Layout";
 import GameRoomList from "@pages/game/gameRoomList";
+import CheckPassword from "../pages/mypage/checkPassword/CheckPassword";
+import UpdateMyPage from "../pages/mypage/updateMypage/UpdateMyPage";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
       {
         path: "/game/list",
         element: <GameRoomList />,
+      },
+      {
+        path: "/user/mypage/checkPassword",
+        element: <CheckPassword />,
+      },
+      {
+        path: "/user/mypage/updateMyPage",
+        element: <UpdateMyPage />,
       },
     ],
   },
