@@ -4,7 +4,6 @@ import * as S from "./checkPasswordStyle";
 import Button from "../../../components/ui/button/Button";
 import { ICheckPassword } from "./schema";
 import { useNavigate } from "react-router-dom";
-import { allowedNodeEnvironmentFlags } from "node:process";
 
 export default function CheckPassword() {
   const methods = useForm<ICheckPassword>();
