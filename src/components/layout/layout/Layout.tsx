@@ -1,13 +1,20 @@
 import Header from "@components/layout/header/Header";
-import Footer from "../footer/Footer";
-import { Outlet } from "react-router-dom";
+import GameRoomHeader from "@components/layout/gameRoomHeader/GameRoomHeader";
+import Footer from "@components/layout/footer/Footer";
+import { Outlet, useLocation } from "react-router-dom";
 import { Wrapper, Container } from "./LayoutStyle";
 
+const HIDDEN_HEADERS = ["/game/room"];
+
 export default function Layout() {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const isHiddenHeader = HIDDEN_HEADERS.includes(pathname);
+
   return (
     <>
       <Wrapper>
-        <Header />
+        {!isHiddenHeader ? <Header /> : <GameRoomHeader />}
         <Container>
           <Outlet />
         </Container>
