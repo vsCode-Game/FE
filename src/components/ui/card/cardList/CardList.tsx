@@ -2,8 +2,9 @@
 // import Nickname from "../../nickname/NickNameBox";
 
 import Badge from "../../badge/Badge";
+import Button from "../../button/Button";
 import Nickname from "../../nickname/NickNameBox";
-import { Button, CardListForm, TitleBox } from "./CardListStyle";
+import { ButtonDiv, CardListForm, TitleBox } from "./CardListStyle";
 
 // const CardListForm = styled.div`
 //   width: 500px;
@@ -46,7 +47,17 @@ export default function CardList() {
         </TitleBox>
         <Nickname></Nickname>
       </div>
-      <Button>참여하기</Button>
+      <ButtonDiv>
+        <Button
+          type="button"
+          size="md"
+          bgcolor="blue"
+          textcolor="black"
+          width="150px"
+        >
+          참여하기
+        </Button>
+      </ButtonDiv>
     </CardListForm>
   );
 }
