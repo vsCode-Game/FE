@@ -1,9 +1,4 @@
-// import { useState } from "react";
 import styled from "styled-components";
-import Button from "../button/Button";
-import medalImage from "../../../assets/images/icon_medal.svg";
-import heartBlueImage from "../../../assets/images/icon_heart_blue.svg";
-import heartRedImage from "../../../assets/images/icon_heart_red.svg";
 
 const PullBox = styled.div`
   display: flex;
@@ -67,7 +62,7 @@ const MyRanking = styled.div`
   flex-shrink: 0;
   border-radius: 12px;
   border: 1px solid #000;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #44ff92 100%);
+  color: var(--color-primary);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
   margin-top: 40px;
   margin-bottom: 30px;
@@ -144,7 +139,7 @@ const ScoreBoard = styled.div`
   flex-shrink: 0;
   border-radius: 12px;
   border: 1px solid #000;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #fffdd7 100%);
+  color: var(--color-yellow-900);
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 const H3 = styled.h3`
@@ -210,50 +205,32 @@ const Lose = styled.div`
   font-size: 20px;
   font-weight: 500;
 `;
-export default function MyPage() {
-  //   const [nickname, setNickName] = useState("");
 
-  return (
-    <PullBox>
-      <H1>마이페이지</H1>
-      <ProfileBox>
-        <ProfilePhoto></ProfilePhoto>
-        <NickNameTextBox>
-          <NickNameText>nickname님,</NickNameText>
-          <HelloText>안녕하세요.</HelloText>
-        </NickNameTextBox>
-      </ProfileBox>
-      <Button type="button" size="sm" bgcolor="blue" textcolor="black">
-        내 정보 수정
-      </Button>
-      <MyRanking>
-        <H2>나의랭킹</H2>
-        <MedalRankingBox>
-          <img src={medalImage} alt="medal" />
-          <RankingBox>
-            <Ranking>
-              <Number>78</Number>
-              <Text>위</Text>
-            </Ranking>
-            <TotalRankingPage>전체 랭킹 보러가기→</TotalRankingPage>
-          </RankingBox>
-        </MedalRankingBox>
-      </MyRanking>
-      <ScoreBoard>
-        <H3>나의 기록</H3>
-        <ScoreBox>
-          <BlueHreartBox>
-            <HeartBlueImg src={heartBlueImage} alt="heartBlue" />
-            <ScoreWin>12</ScoreWin>
-            <Win>승</Win>
-          </BlueHreartBox>
-          <RedHeartBox>
-            <HeartRedImg src={heartRedImage} alt="heartRed" />
-            <ScoreLose>5</ScoreLose>
-            <Lose>패</Lose>
-          </RedHeartBox>
-        </ScoreBox>
-      </ScoreBoard>
-    </PullBox>
-  );
-}
+export {
+  PullBox,
+  H1,
+  ProfilePhoto,
+  ProfileBox,
+  NickNameTextBox,
+  NickNameText,
+  HelloText,
+  MyRanking,
+  H2,
+  MedalRankingBox,
+  RankingBox,
+  Ranking,
+  Number,
+  Text,
+  TotalRankingPage,
+  ScoreBoard,
+  H3,
+  ScoreBox,
+  BlueHreartBox,
+  HeartBlueImg,
+  ScoreWin,
+  Win,
+  RedHeartBox,
+  HeartRedImg,
+  ScoreLose,
+  Lose,
+};

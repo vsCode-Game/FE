@@ -13,25 +13,24 @@ const CardListForm = styled.div`
 const TitleBox = styled.div`
   margin-top: 20px;
   margin-bottom: 8px;
-  display: -webkit-box; /* Flex 컨테이너로 설정 */
-  -webkit-box-orient: vertical; /* 텍스트를 세로 방향으로 클램핑 */
-  overflow: hidden; /* 넘치는 텍스트 숨김 */
-  text-overflow: ellipsis; /* ... 처리 */
-  -webkit-line-clamp: 2; /* 2줄로 제한 */
-  line-clamp: 2; /* 최신 브라우저 지원 */
-  word-break: break-word; /* 단어가 잘릴 때 줄바꿈 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  word-break: break-word;
+  color: var(--gray-999, #000);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
 `;
 
-const Button = styled.button`
-  width: 150px;
-  position: relative;
-  border-radius: 50px;
-  background: radial-gradient(50% 50% at 50% 50%, #2571ff, #fff);
-  border: 1px solid #000;
-  box-sizing: border-box;
-  height: 50px;
-  margin-top: 40px;
-  margin-left: 290px;
-  text-align: center;
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: end;
+  margin-top: 2px;
 `;
-export { CardListForm, TitleBox, Button };
+export { CardListForm, TitleBox, ButtonDiv };

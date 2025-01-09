@@ -1,6 +1,6 @@
-import ProfileCard from "../card/profileCard/ProfileCard";
+import ProfileCard from "../../../components/ui/card/profileCard/ProfileCard";
 import { ReactNode } from "react";
-import ChattingBox from "../card/chatting/Chatting";
+import ChattingBox from "../../../components/ui/card/chatting/Chatting";
 import { ChattingReadyDiv, PageBox } from "./waitingPageStyle";
 
 export default function WaitingPage({ children }: { children: ReactNode }) {
