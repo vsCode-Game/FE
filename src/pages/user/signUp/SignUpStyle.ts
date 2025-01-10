@@ -22,6 +22,7 @@ export const Steps = styled.ul`
 
   > li {
     width: 90px;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +30,9 @@ export const Steps = styled.ul`
   }
 `;
 
-export const Step = styled.li``;
+export const StepBasic = styled.li`
+  background-color: var(--color-gray-200);
+`;
 
 export const StepActive = styled.li`
   background-image: radial-gradient(
