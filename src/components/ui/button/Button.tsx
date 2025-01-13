@@ -10,6 +10,7 @@ export default function Button({
   bgcolor,
   textcolor,
   width,
+  ...props
 }: IButtonProps) {
   return (
     <S.Button
@@ -20,6 +21,7 @@ export default function Button({
       bgcolor={bgcolor}
       textcolor={textcolor}
       width={width}
+      {...props}
     >
       {children}
     </S.Button>
