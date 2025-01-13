@@ -1,5 +1,5 @@
-import MyPage from "../mypage/myScorePage/MyPage";
+import CardList from "../../components/ui/card/cardList/CardList";
 
 export default function GameRoomList() {
-  return <MyPage />;
+  return <CardList />;
 }
