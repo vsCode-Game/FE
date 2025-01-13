@@ -6,6 +6,7 @@ export default function Input<I extends FieldValues>({
   keyname,
   disable,
   defaultValue,
+  ...props
 }: IInputProps<I>) {
   const { register } = useFormContext<I>();
 
@@ -15,6 +16,7 @@ export default function Input<I extends FieldValues>({
       {...register(keyname)}
       disabled={disable}
       defaultValue={defaultValue}
+      {...props}
     ></S.input>
   );
 }

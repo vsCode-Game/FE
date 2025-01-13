@@ -1,5 +1,5 @@
 interface IInputProps<P> {
-  type: HTMLInputTypeAttribute;
+  type: React.HTMLInputTypeAttribute;
   keyname: Path<P>;
   defaultValue?: string;
   disable?: boolean;
