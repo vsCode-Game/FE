@@ -1,5 +1,7 @@
 import Input from "@components/ui/input/Input";
-import Button from "../../../components/ui/button/Button";
+import Button from "@components/ui/button/Button";
+import CheckBox from "@components/ui/checkBox/CheckBox";
+import TextButton from "@components/ui/textButton/TextButton";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schema, signUpSchema } from "./schema";
@@ -14,8 +16,6 @@ import {
   CheckLabel,
 } from "./SignUpStyle";
 import { useNavigate } from "react-router-dom";
-import CheckBox from "../../../components/ui/checkBox/CheckBox";
-import TextButton from "../../../components/ui/textButton/textButton";
 
 interface SignUpStepProps {
   onNext: () => void;
