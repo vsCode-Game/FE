@@ -13,7 +13,7 @@ export const SignUpTitle = styled.h2`
   font-weight: bold;
 `;
 
-export const Steps = styled.ul`
+export const Stepper = styled.ul`
   display: flex;
   border-radius: 12px;
   background-color: var(--color-gray-200);
@@ -34,7 +34,7 @@ export const StepBasic = styled.li`
   background-color: var(--color-gray-200);
 `;
 
-export const StepActive = styled.li`
+export const CurrentStep = styled.li`
   background-image: radial-gradient(
     120% 120% at 50% 100%,
     var(--color-primary) 0%,
@@ -44,11 +44,11 @@ export const StepActive = styled.li`
   font-weight: 500;
 `;
 
-export const Form = styled.form`
+export const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
+  height: 550px;
 `;
 
 export const FlexCol = styled.div`
@@ -63,6 +63,12 @@ export const Flex = styled.div`
   gap: 20px;
 `;
 
+export const Tip = styled.p`
+  color: var(--color-gray-400);
+  font-weight: 300;
+  margin-top: 15px;
+`;
+
 export const InputBox = styled.div`
   width: 400px;
 `;
@@ -75,7 +81,75 @@ export const StyledLabel = styled.label`
   margin-bottom: 10px;
 `;
 
+export const ButtonLabel = styled.label`
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+`;
+
 export const ErrorMessage = styled.p`
   color: var(--color-warning);
   margin-top: 10px;
+`;
+
+export const AgreeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
+export const AgreeBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const CheckLabel = styled.label`
+  font-size: 12px;
+  font-weight: 200;
+  color: var(--color-gray-999);
+  flex-grow: 1;
+`;
+
+export const ProfileImageWrapper = styled.div`
+  width: 150px;
+  height: 150px;
+  margin: 0px auto 30px;
+`;
+
+export const ProfileImage = styled.img`
+  width: 100%;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+  border: 4px solid var(--color-gray-300);
+`;
+
+export const AddImageButton = styled.label`
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(51, 86, 53, 1);
+  color: #fff;
+  border-radius: 25px;
+  font-weight: 300;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  flex-grow: 1;
+
+  &:hover {
+    background-color: rgba(85, 162, 90, 1);
+  }
+`;
+
+export const DeleteButton = styled.button`
+  width: 10%;
+`;
+
+export const DeleteIcon = styled.img`
+  width: auto;
+  height: 50px;
 `;

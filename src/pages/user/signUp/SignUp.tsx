@@ -2,19 +2,24 @@ import Form from "@components/form/Form";
 import SignUpStep from "./SignUpStep";
 import { useFunnel } from "@hooks/useFunnel";
 import {
+  FormWrapper,
   SignUpSection,
   SignUpTitle,
-  StepActive,
+  CurrentStep,
   StepBasic,
-  Steps,
+  Stepper,
 } from "./SignUpStyle";
 
 const steps = ["기본정보 입력", "프로필 설정"];
 
 export default function SignUp() {
-  const { Funnel, Step, setStep } = useFunnel(steps[0]);
+  const { Funnel, Step, setStep, currentStep } = useFunnel(steps[0]);
 
-  const nextClickHandler = (targetStep: any) => {
+  const nextClickHandler = (targetStep: string) => {
+    setStep(targetStep);
+  };
+
+  const prevClickHandler = (targetStep: string) => {
     setStep(targetStep);
   };
 
@@ -24,17 +29,29 @@ export default function SignUp() {
     <>
       <SignUpSection>
         <SignUpTitle>회원가입</SignUpTitle>
-        <Steps>
-          <StepActive>1</StepActive>
-          <StepBasic>2</StepBasic>
-        </Steps>
+        <Stepper>
+          {currentStep === steps[0] ? (
+            <>
+              <CurrentStep>1</CurrentStep>
+              <StepBasic>2</StepBasic>
+            </>
+          ) : (
+            <>
+              <StepBasic>1</StepBasic>
+              <CurrentStep>2</CurrentStep>
+            </>
+          )}
+        </Stepper>
         <Form formOptions={{ mode: "onChange" }} onSubmit={submitSignup}>
-          <SignUpStep
-            steps={steps}
-            nextClickHandler={nextClickHandler}
-            Funnel={Funnel}
-            Step={Step}
-          />
+          <FormWrapper>
+            <SignUpStep
+              steps={steps}
+              nextClickHandler={nextClickHandler}
+              prevClickHandler={prevClickHandler}
+              Funnel={Funnel}
+              Step={Step}
+            />
+          </FormWrapper>
         </Form>
       </SignUpSection>
     </>

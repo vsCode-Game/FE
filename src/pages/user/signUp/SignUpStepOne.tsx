@@ -9,19 +9,28 @@ import {
   ErrorMessage,
   FlexCol,
   Flex,
+  AgreeWrapper,
+  AgreeBox,
+  CheckLabel,
 } from "./SignUpStyle";
+import { useNavigate } from "react-router-dom";
+import CheckBox from "../../../components/ui/checkBox/CheckBox";
+import TextButton from "../../../components/ui/textButton/textButton";
 
 interface SignUpStepProps {
   onNext: () => void;
 }
 
-export default function SignUpStepRequired({ onNext }: SignUpStepProps) {
+export default function SignUpStepOne({ onNext }: SignUpStepProps) {
   const methods = useForm<signUpSchema>({
     resolver: zodResolver(schema),
     mode: "onChange",
   });
+  const navigate = useNavigate();
 
-  const onClickSubmit = () => {};
+  const onClickPrev = () => {
+    navigate(-1);
+  };
 
   return (
     <>
@@ -73,8 +82,22 @@ export default function SignUpStepRequired({ onNext }: SignUpStepProps) {
             {methods.formState.errors.passwordConfirm?.message}
           </ErrorMessage>
         </InputBox>
+
+        <AgreeWrapper>
+          <AgreeBox>
+            <CheckBox id="agreeTOU" />
+            <CheckLabel htmlFor="agreeTOU">이용약관에 동의합니다.</CheckLabel>
+            <TextButton>약관 보기</TextButton>
+          </AgreeBox>
+          <AgreeBox>
+            <CheckBox id="agreePP" />
+            <CheckLabel htmlFor="agreePP">
+              개인정보처리방침에 동의합니다.
+            </CheckLabel>
+            <TextButton>약관 보기</TextButton>
+          </AgreeBox>
+        </AgreeWrapper>
       </FlexCol>
-      <Flex></Flex>
       <Flex>
         <Button
           type="button"
@@ -82,6 +105,7 @@ export default function SignUpStepRequired({ onNext }: SignUpStepProps) {
           bgcolor="black"
           textcolor="white"
           width="190px"
+          onClickFnc={onClickPrev}
         >
           이전
         </Button>

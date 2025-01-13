@@ -1,28 +1,30 @@
-import SignUpStepOptional from "./SignUpStepOptional";
-import SignUpStepRequired from "./SignUpStepRequired";
-import { FunnelProps, StepProps } from "../../../hooks/useFunnel";
+import SignUpStepOne from "./SignUpStepOne";
+import SignUpStepTwo from "./SignUpStepTwo";
+import { iFunnelProps, iStepProps } from "../../../hooks/useFunnel";
 
-export interface SignUpProps {
+export interface iSignUpProps {
   steps: string[];
   nextClickHandler: (nextStep: string) => void;
-  Funnel: React.ComponentType<FunnelProps>;
-  Step: React.ComponentType<StepProps>;
+  prevClickHandler: (prevStep: string) => void;
+  Funnel: React.ComponentType<iFunnelProps>;
+  Step: React.ComponentType<iStepProps>;
 }
 
 export default function SignUpStep({
   steps,
   nextClickHandler,
+  prevClickHandler,
   Funnel,
   Step,
-}: SignUpProps) {
+}: iSignUpProps) {
   return (
     <>
       <Funnel>
         <Step name="기본정보 입력">
-          <SignUpStepRequired onNext={() => nextClickHandler(steps[1])} />
+          <SignUpStepOne onNext={() => nextClickHandler(steps[1])} />
         </Step>
         <Step name="프로필 설정">
-          <SignUpStepOptional />
+          <SignUpStepTwo onPrev={() => prevClickHandler(steps[0])} />
         </Step>
       </Funnel>
     </>
