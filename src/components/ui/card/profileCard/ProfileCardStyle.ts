@@ -13,6 +13,7 @@ export const CardIndex = styled.div`
   text-align: center;
   line-height: 46px;
 `;
+
 export const PlayerCard = styled.div`
   display: flex;
   flex-direction: column;
