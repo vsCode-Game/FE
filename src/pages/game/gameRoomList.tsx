@@ -95,7 +95,7 @@ export default function GameRoomList() {
         </Button>
       </S.buttonContainer>
       <S.gameroomListContainer>
-        {allRooms.map((room) => (
+        {allRooms?.map((room) => (
           <GameRoomCard key={room.id} room={room} />
         ))}
       </S.gameroomListContainer>
