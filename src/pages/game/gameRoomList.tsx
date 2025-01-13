@@ -1,5 +1,5 @@
-import MyPage from "../mypage/myScorePage/MyPage";
+import BackToTop from "../../components/ui/scrollToTop/BackToTop";
 
 export default function GameRoomList() {
-  return <MyPage />;
+  return <BackToTop />;
 }
