@@ -36,27 +36,20 @@ const fetchMockRooms = async ({ pageParam = 1, limit = 12 }) => {
 };
 
 export default function GameRoomList() {
-  const {
-    data,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isFetching,
-    status,
-  } = useInfiniteQuery(
-    ["mockGameRooms"], // Query Key
-    ({ pageParam = 1 }) => fetchMockRooms({ pageParam, limit: 12 }),
-    {
-      getNextPageParam: (lastPage) => lastPage.nextPage, // 다음 페이지 결정
-    },
-  );
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
+    useInfiniteQuery(
+      ["mockGameRooms"], // Query Key
+      ({ pageParam = 1 }) => fetchMockRooms({ pageParam, limit: 12 }),
+      {
+        getNextPageParam: (lastPage) => lastPage.nextPage, // 다음 페이지 결정
+      },
+    );
   // Intersection Observer를 위한 ref
   const loadMoreRef = useRef(null);
 
   // Intersection Observer 콜백
   const handleObserver = useCallback(
-    (entries) => {
+    (entries: any) => {
       const target = entries[0];
       if (target.isIntersecting && hasNextPage) {
         fetchNextPage(); // 다음 페이지 로드
@@ -84,10 +77,9 @@ export default function GameRoomList() {
     };
   }, [handleObserver]);
   if (status === "loading") return <p>Loading...</p>;
-  if (status === "error") return <p>Error: {error.message}</p>;
 
   // 모든 페이지 데이터를 평탄화
-  const allRooms = data.pages.flatMap((page) => page.rooms);
+  const allRooms = data?.pages.flatMap((page) => page.rooms);
 
   return (
     <S.container>
