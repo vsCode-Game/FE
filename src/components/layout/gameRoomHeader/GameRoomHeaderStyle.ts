@@ -9,20 +9,18 @@ export const StyledHeader = styled.header`
   );
   display: flex;
   justify-content: space-between;
-  padding: 55px 30px 0;
-  position: fixed;
+  align-items: center;
+  padding: 30px;
   width: 100vw;
 `;
 
-export const Logo = styled.h1`
-  flex-grow: 1;
-`;
-
-export const NavList = styled.ul`
+export const Flex = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+`;
+
+export const TextButton = styled.span`
   font-size: 18px;
-  font-weight: 500;
-  margin-top: -90px;
+  font-weight: 400;
+  margin-left: 10px;
 `;
