@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-// import App from "../App";
 import Login from "@pages/user/login/Login";
 import Ranking from "@pages/rank/Ranking";
 import SignUp from "@pages/user/signUp/SignUp";
@@ -36,7 +35,7 @@ export const router = createBrowserRouter([
             element: <GameRoomList />,
           },
           {
-            path: "room/:id",
+            path: "room/1",
             element: <GameRoom />,
           },
         ],
