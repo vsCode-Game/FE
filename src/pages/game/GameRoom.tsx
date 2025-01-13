@@ -6,7 +6,7 @@ export default function GameRoom() {
   return (
     <S.container>
       <S.leftContainer>
-        <ProfileCard />
+        {/* <ProfileCard /> */}
         <ChattingBox />
       </S.leftContainer>
       <S.centerContainer>
@@ -16,7 +16,7 @@ export default function GameRoom() {
       </S.centerContainer>
       <S.rightContainer>
         <S.myDeckBox />
-        <ProfileCard />
+        {/* <ProfileCard /> */}
       </S.rightContainer>
     </S.container>
   );
