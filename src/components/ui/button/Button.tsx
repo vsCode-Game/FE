@@ -3,23 +3,25 @@ import * as S from "./buttonStyle";
 
 export default function Button({
   children,
-  onClickFnc,
+  onClick,
   type = "button",
-  disabled,
   size,
   bgcolor,
   textcolor,
+  disabled,
   width,
+  playerNumber,
 }: IButtonProps) {
   return (
     <S.Button
       type={type}
-      onClick={onClickFnc}
+      onClick={onClick}
       disabled={disabled}
       size={size}
       bgcolor={bgcolor}
       textcolor={textcolor}
       width={width}
+      playerNumber={playerNumber}
     >
       {children}
     </S.Button>
