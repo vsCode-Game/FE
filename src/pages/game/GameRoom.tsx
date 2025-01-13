@@ -1,5 +1,5 @@
 import ChattingBox from "../../components/ui/card/chatting/Chatting";
-import ProfileCard from "../../components/ui/card/profileCard/ProfileCard";
+// import ProfileCard from "../../components/ui/card/profileCard/ProfileCard";
 import * as S from "./gameRoomStyle";
 
 export default function GameRoom() {
