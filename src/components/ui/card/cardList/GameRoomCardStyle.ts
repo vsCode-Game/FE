@@ -1,36 +1,38 @@
 import styled from "styled-components";
-const CardListForm = styled.div`
+
+export const cardContainer = styled.div`
   width: 500px;
   position: relative;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--color-gray-0);
+  border: 2px solid var(--color-gray-999);
   box-sizing: border-box;
   height: 260px;
-  padding: 30px 24px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
 `;
-const TitleBox = styled.div`
+
+export const titleBox = styled.div`
   margin-top: 20px;
-  margin-bottom: 8px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
   line-clamp: 2;
   word-break: break-word;
   color: var(--gray-999, #000);
-  font-family: Pretendard;
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
   line-height: 30px;
 `;
 
-const ButtonDiv = styled.div`
+export const buttonContainer = styled.div`
   display: flex;
   justify-content: end;
-  margin-top: 2px;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
 `;
-export { CardListForm, TitleBox, ButtonDiv };

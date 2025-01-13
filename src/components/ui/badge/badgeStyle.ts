@@ -12,8 +12,10 @@ export const Badge = styled.div<IBadgeProps>`
   line-height: 30px;
   color: var(--color-gray-999);
 
-  ${({ status }) => {
-    switch (status) {
+  ${({ status, playerNumber }) => {
+    const computedStatus = playerNumber === 2 ? "playing" : status;
+
+    switch (computedStatus) {
       case "waiting...":
         return `
           background: radial-gradient(120% 120% at 50% 100%, #FFFBA6 0%, #FFFFFF 100%);
