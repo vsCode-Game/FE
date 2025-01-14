@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import ReactDOM from "react-dom";
 
-interface iModalPortalProps {
+interface IModalPortalProps {
   children: ReactNode;
 }
 
