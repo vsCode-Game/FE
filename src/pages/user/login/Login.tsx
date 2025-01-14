@@ -15,8 +15,7 @@ export default function LoginPage() {
   const mutation = useLoginSubmitMutation();
 
   const onClickSubmit = async (data: loginSchema) => {
-    const result = mutation.mutate(data);
-    console.log(result);
+    mutation.mutate(data);
   };
 
   return (

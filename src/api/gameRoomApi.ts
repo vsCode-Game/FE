@@ -42,7 +42,7 @@ export const createGameRoom = async ({
   try {
     const response = await authInstance.post<ICreateGameRoomResponse>(
       "gameRoom/create",
-      { roomName }, // 객체 형태로 전달
+      { roomName },
     );
 
     return response.data;
@@ -64,6 +64,7 @@ export const createGameRoom = async ({
 export const joinGameRoom = async (gameRoomId: number) => {
   try {
     const response = await authInstance.post(`/gameRoom/join/${gameRoomId}`);
+    console.log(response, "joinresponse확인");
     if (response.status === 200) {
       return response.data;
     }
@@ -78,7 +79,9 @@ export const joinGameRoom = async (gameRoomId: number) => {
 
 export const outGameRoom = async (gameRoomId: number) => {
   try {
-    const response = await authInstance.post(`gameRoom/leave/${gameRoomId}`);
+    console.log(gameRoomId, "gameRoomId확인");
+    const response = await authInstance.delete(`gameRoom/leave/${gameRoomId}`);
+    console.log(response, "outresponse확인");
     if (response.status === 200) {
       return response.data;
     }

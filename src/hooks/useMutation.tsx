@@ -58,7 +58,7 @@ export const useOutRoomMutaion = () => {
     mutationFn: outGameRoom,
     onSuccess: (data) => {
       console.log("방나가기 성공", data);
-      navigate("/game");
+      navigate(`/game`);
       queryClient.invalidateQueries({
         queryKey: ["gameRoomList"],
       });
@@ -77,6 +77,7 @@ export const useOutRoomMutaion = () => {
 };
 
 export const useLoginSubmitMutation = () => {
+  const navigate = useNavigate();
   return useMutation<
     ILoginResponse,
     Error,
@@ -84,9 +85,9 @@ export const useLoginSubmitMutation = () => {
   >({
     mutationFn: loginUser,
     onSuccess: (data) => {
-      console.log(data);
       const accessToken = data?.accessToken;
       localStorage.setItem("accessToken", accessToken);
+      navigate(`/game`);
     },
     onError: (error) => {
       alert(error.message);
