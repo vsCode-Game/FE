@@ -5,6 +5,8 @@ export const Button = styled.button<IButtonProps>`
   border-radius: 50px;
   border: 1px solid var(--color-gray-999);
   text-align: center;
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 
   ${({ width }) => {
     return `width: ${width ?? "100%"};`;
@@ -51,7 +53,13 @@ export const Button = styled.button<IButtonProps>`
     }
   }};
 
-  ${({ bgcolor }) => {
+  ${({ bgcolor, disabled }) => {
+    if (disabled) {
+      return `
+        background: radial-gradient(120% 120% at 50% 100%, #949494 0%, #FFFFFF 100%);
+      `;
+    }
+
     switch (bgcolor) {
       case "black":
         return `
@@ -80,7 +88,13 @@ export const Button = styled.button<IButtonProps>`
     }
   }}
 
-  ${({ textcolor }) => {
+  ${({ textcolor, disabled }) => {
+    if (disabled) {
+      return `
+        color: var(--color-gray-600);
+      `;
+    }
+
     switch (textcolor) {
       case "black":
         return `
