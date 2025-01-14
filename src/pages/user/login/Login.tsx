@@ -30,7 +30,7 @@ export default function LoginPage() {
                 <S.label>이메일</S.label>
                 <Input<loginSchema> type="text" keyname="userEmail" />
                 <S.errorMessage>
-                  {methods.formState.errors.email?.message}
+                  {methods.formState.errors.userEmail?.message}
                 </S.errorMessage>
               </S.inputBox>
               <S.inputBox>
