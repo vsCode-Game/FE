@@ -52,7 +52,7 @@ export const useOutRoomMutaion = () => {
     mutationFn: outGameRoom,
     onSuccess: (data) => {
       console.log("방나가기 성공", data);
-      navigate("/game");
+      navigate(`/game`);
       queryClient.invalidateQueries({
         queryKey: ["gameRoomList"],
       });
