@@ -1,13 +1,13 @@
 import SignUpStepOne from "./SignUpStepOne";
 import SignUpStepTwo from "./SignUpStepTwo";
-import { iFunnelProps, iStepProps } from "../../../hooks/useFunnel";
+import { IFunnelProps, IStepProps } from "../../../hooks/useFunnel";
 
-export interface iSignUpProps {
+export interface ISignUpProps {
   steps: string[];
   nextClickHandler: (nextStep: string) => void;
   prevClickHandler: (prevStep: string) => void;
-  Funnel: React.ComponentType<iFunnelProps>;
-  Step: React.ComponentType<iStepProps>;
+  Funnel: React.ComponentType<IFunnelProps>;
+  Step: React.ComponentType<IStepProps>;
 }
 
 export default function SignUpStep({
@@ -16,7 +16,7 @@ export default function SignUpStep({
   prevClickHandler,
   Funnel,
   Step,
-}: iSignUpProps) {
+}: ISignUpProps) {
   return (
     <>
       <Funnel>

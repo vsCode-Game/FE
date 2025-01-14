@@ -41,7 +41,7 @@ export default function Header() {
                   width="100px"
                   bgcolor="black"
                   textcolor="white"
-                  onClickFnc={onClickLogout}
+                  onClick={onClickLogout}
                 >
                   로그아웃
                 </Button>
@@ -58,7 +58,7 @@ export default function Header() {
                   width="100px"
                   bgcolor="black"
                   textcolor="white"
-                  onClickFnc={onClickMove}
+                  onClick={onClickMove}
                 >
                   회원가입
                 </Button>

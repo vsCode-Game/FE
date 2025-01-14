@@ -6,7 +6,13 @@ import {
   joinGameRoom,
   outGameRoom,
 } from "../api/gameRoomApi";
-import { ILoginResponse, loginUser } from "../api/userAuthApi";
+import {
+  ILoginResponse,
+  ISignUpResponse,
+  ISignUpVariables,
+  loginUser,
+  signUpUser,
+} from "../api/userAuthApi";
 
 export const useCreateRoomMutation = () => {
   const navigate = useNavigate();
@@ -52,7 +58,7 @@ export const useOutRoomMutaion = () => {
     mutationFn: outGameRoom,
     onSuccess: (data) => {
       console.log("방나가기 성공", data);
-      navigate("/game");
+      navigate(`/game`);
       queryClient.invalidateQueries({
         queryKey: ["gameRoomList"],
       });
@@ -85,6 +91,18 @@ export const useLoginSubmitMutation = () => {
     },
     onError: (error) => {
       alert(error.message);
+    },
+  });
+};
+
+export const useSignUpSubmitMutation = () => {
+  return useMutation<ISignUpResponse, Error, ISignUpVariables>({
+    mutationFn: signUpUser,
+    onSuccess: (data) => {
+      console.log(data);
+    },
+    onError: (error) => {
+      console.log(error.message);
     },
   });
 };
