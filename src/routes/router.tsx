@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "@pages/user/login/Login";
 import Ranking from "@pages/rank/Ranking";
 import SignUp from "@pages/user/signUp/SignUp";
@@ -8,12 +8,21 @@ import CheckPassword from "@pages/mypage/checkPassword/CheckPassword";
 import UpdateMyPage from "@pages/mypage/updateMypage/UpdateMyPage";
 import GameRoom from "@pages/game/GameRoom";
 import Game from "@pages/game/Game";
+import Home from "@pages/home/Home";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
+      {
+        index: true,
+        element: <Navigate to="/home" />,
+      },
+      {
+        path: "home",
+        element: <Home />,
+      },
       {
         path: "/user/login",
         element: <Login />,
