@@ -10,6 +10,18 @@ export interface IErrorResponse {
   message: string;
 }
 
+export interface ISignUpVariables {
+  userEmail: string;
+  password: string;
+  userNickname: string;
+}
+
+export interface ISignUpResponse {
+  userEmail: string;
+  password: string;
+  userNickname: string;
+}
+
 export const loginUser = async (logInfo: {
   userEmail: string;
   password: string;
@@ -52,5 +64,23 @@ export const refreshToken = async () => {
     return response.data.accessToken;
   } catch (err) {
     console.log(err);
+  }
+};
+
+export const signUpUser = async (
+  variables: ISignUpVariables,
+): Promise<ISignUpResponse> => {
+  try {
+    const response = await instance.post("/user/signup", variables, {
+      withCredentials: false,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    throw new Error("회원가입에 실패했습니다.");
   }
 };
