@@ -5,7 +5,6 @@ import { loginSchema, schema } from "./schema";
 import Input from "../../../components/ui/input/Input";
 import * as S from "./loginStyle2";
 import { useLoginSubmitMutation } from "../../../hooks/useMutation";
-import MakeRoom from "../../../components/ui/modalcontents/makeRoom";
 
 export default function LoginPage() {
   const methods = useForm<loginSchema>({

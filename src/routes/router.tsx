@@ -58,10 +58,6 @@ export const router = createBrowserRouter([
         path: "/user/mypage/updateMyPage",
         element: <UpdateMyPage />,
       },
-      {
-        path: "/test",
-        element: <Testpage />,
-      },
     ],
   },
 ]);
