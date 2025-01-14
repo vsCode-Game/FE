@@ -63,19 +63,21 @@ export default function SignUpStepTwo({ onPrev }: SignUpStepProps) {
         <InputBox>
           <StyledLabel htmlFor="signupNickname">닉네임</StyledLabel>
           <Controller
-            name="nickname"
+            name="userNickname"
             control={control}
             render={({ field }) => (
               <Input<signUpSchema>
                 type="text"
-                keyname="nickname"
+                keyname="userNickname"
                 id="signupNickname"
                 placeholder="사용할 닉네임을 두글자 이상 입력해 주세요."
                 {...field}
               />
             )}
           />
-          <ErrorMessage>{methods.formState.errors.email?.message}</ErrorMessage>
+          <ErrorMessage>
+            {methods.formState.errors.userNickname?.message}
+          </ErrorMessage>
         </InputBox>
       </FlexCol>
       <Flex>
@@ -85,7 +87,7 @@ export default function SignUpStepTwo({ onPrev }: SignUpStepProps) {
           bgcolor="black"
           textcolor="white"
           width="190px"
-          onClickFnc={onPrev}
+          onClick={onPrev}
         >
           이전
         </Button>
