@@ -40,12 +40,12 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
           <StyledLabel htmlFor="signupEmail">이메일</StyledLabel>
           <Flex>
             <Controller
-              name="email"
+              name="userEmail"
               control={control}
               render={({ field }) => (
                 <Input<signUpSchema>
                   type="text"
-                  keyname="email"
+                  keyname="userEmail"
                   id="signupEmail"
                   placeholder="이메일을 입력해 주세요."
                   {...field}
@@ -63,7 +63,9 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
               중복확인
             </Button>
           </Flex>
-          <ErrorMessage>{methods.formState.errors.email?.message}</ErrorMessage>
+          <ErrorMessage>
+            {methods.formState.errors.userEmail?.message}
+          </ErrorMessage>
         </InputBox>
         <InputBox>
           <StyledLabel htmlFor="signupPassword">비밀번호</StyledLabel>
@@ -128,7 +130,7 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
           bgcolor="black"
           textcolor="white"
           width="190px"
-          onClickFnc={onClickPrev}
+          onClick={onClickPrev}
         >
           이전
         </Button>
@@ -138,7 +140,7 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
           bgcolor="green"
           textcolor="black"
           width="190px"
-          onClickFnc={onNext}
+          onClick={onNext}
         >
           다음
         </Button>

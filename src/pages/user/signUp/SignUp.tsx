@@ -10,11 +10,14 @@ import {
   Stepper,
 } from "./SignUpStyle";
 import { SubmitHandler } from "react-hook-form";
+import { signUpSchema } from "./schema";
+import { useSignUpSubmitMutation } from "@hooks/useMutation";
 
 const steps = ["기본정보 입력", "프로필 설정"];
 
 export default function SignUp() {
   const { Funnel, Step, setStep, currentStep } = useFunnel(steps[0]);
+  const mutation = useSignUpSubmitMutation();
 
   const nextClickHandler = (targetStep: string) => {
     setStep(targetStep);
@@ -24,8 +27,12 @@ export default function SignUp() {
     setStep(targetStep);
   };
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<signUpSchema> = async (data) => {
     console.log("Submitted Data:", data);
+    const { passwordConfirm, profileImage, ...formData } = data;
+
+    const result = mutation.mutate(formData);
+    console.log(result);
   };
 
   return (
@@ -49,11 +56,11 @@ export default function SignUp() {
           onSubmit={onSubmit}
           formOptions={{
             defaultValues: {
-              email: "",
+              userEmail: "",
               password: "",
               passwordConfirm: "",
-              nickname: "",
-              profileImage: "",
+              userNickname: "",
+              profileImage: [""],
             },
           }}
         >
