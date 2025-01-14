@@ -74,7 +74,7 @@ export const useLoginSubmitMutation = () => {
   return useMutation<
     ILoginResponse,
     Error,
-    { email: string; password: string }
+    { userEmail: string; password: string }
   >({
     mutationFn: loginUser,
     onSuccess: (data) => {

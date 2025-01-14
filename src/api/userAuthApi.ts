@@ -11,7 +11,7 @@ export interface IErrorResponse {
 }
 
 export const loginUser = async (logInfo: {
-  email: string;
+  userEmail: string;
   password: string;
 }): Promise<ILoginResponse> => {
   try {
