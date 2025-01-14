@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://api.davincicodegame.store",
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 export const authInstance = axios.create({
