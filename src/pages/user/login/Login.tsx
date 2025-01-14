@@ -4,6 +4,7 @@ import Button from "../../../components/ui/button/Button";
 import { loginSchema, schema } from "./schema";
 import Input from "../../../components/ui/input/Input";
 import * as S from "./loginStyle2";
+import { useLoginSubmitMutation } from "../../../hooks/useMutation";
 
 export default function LoginPage() {
   const methods = useForm<loginSchema>({
@@ -11,9 +12,13 @@ export default function LoginPage() {
     mode: "onChange",
   });
 
+  const mutation = useLoginSubmitMutation();
+
   const onClickSubmit = async (data: loginSchema) => {
-    console.log(data);
+    const result = mutation.mutate(data);
+    console.log(result);
   };
+
   return (
     <>
       <S.container>
@@ -23,9 +28,9 @@ export default function LoginPage() {
             <S.form onSubmit={methods.handleSubmit(onClickSubmit)}>
               <S.inputBox>
                 <S.label>이메일</S.label>
-                <Input<loginSchema> type="text" keyname="email" />
+                <Input<loginSchema> type="text" keyname="userEmail" />
                 <S.errorMessage>
-                  {methods.formState.errors.email?.message}
+                  {methods.formState.errors.userEmail?.message}
                 </S.errorMessage>
               </S.inputBox>
               <S.inputBox>

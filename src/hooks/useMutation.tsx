@@ -6,6 +6,7 @@ import {
   joinGameRoom,
   outGameRoom,
 } from "../api/gameRoomApi";
+import { ILoginResponse, loginUser } from "../api/userAuthApi";
 
 export const useCreateRoomMutation = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export const useCreateRoomMutation = () => {
   return useMutation<ICreateGameRoomResponse, Error, { roomName: string }>({
     mutationFn: createGameRoom,
     onSuccess: (data) => {
-      navigate(`/gameRoom/${data.room.id}`);
+      navigate(`/game/room/${data.room.id}`);
       queryClient.invalidateQueries({
         queryKey: ["gameRoomList"],
       });
@@ -45,11 +46,16 @@ export const useJoinRoomMutation = () => {
 
 export const useOutRoomMutaion = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: outGameRoom,
     onSuccess: (data) => {
       console.log("방나가기 성공", data);
       navigate("/game");
+      queryClient.invalidateQueries({
+        queryKey: ["gameRoomList"],
+      });
     },
 
     onError: (error: any) => {
@@ -60,6 +66,24 @@ export const useOutRoomMutaion = () => {
       } else {
         alert(error.message);
       }
+    },
+  });
+};
+
+export const useLoginSubmitMutation = () => {
+  return useMutation<
+    ILoginResponse,
+    Error,
+    { userEmail: string; password: string }
+  >({
+    mutationFn: loginUser,
+    onSuccess: (data) => {
+      console.log(data);
+      const accessToken = data?.accessToken;
+      localStorage.setItem("accessToken", accessToken);
+    },
+    onError: (error) => {
+      alert(error.message);
     },
   });
 };
