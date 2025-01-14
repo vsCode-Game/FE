@@ -1,5 +1,5 @@
 interface IWhiteDeckProps {
-  value:
+  value?:
     | "1"
     | "2"
     | "3"

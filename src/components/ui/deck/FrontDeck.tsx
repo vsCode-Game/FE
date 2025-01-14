@@ -1,6 +1,6 @@
-import * as S from "./DeckStyle";
+import * as S from "./frontDeckStyle";
 
-export default function Deck({ value, color }: IWhiteDeckProps) {
+export default function FrontDeck({ value, color }: IWhiteDeckProps) {
   const underBar = value === "6" || value === "9";
   return (
     <S.cardDeck color={color}>

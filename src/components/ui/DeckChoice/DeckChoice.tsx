@@ -1,5 +1,5 @@
-import MiniDeck from "../MiniDeck";
-import { DeckContainer } from "./deckChoiceStyle";
+import MiniDeck from "../miniDeck/MiniDeck";
+import * as S from "./deckChoiceStyle";
 
 export default function DeckChoice({
   whiteCount,
@@ -9,11 +9,12 @@ export default function DeckChoice({
     ...Array(whiteCount).fill("white"),
     ...Array(blackCount).fill("black"),
   ];
+
   return (
-    <DeckContainer>
+    <S.DeckContainer>
       {deckArray.map((color, index) => (
         <MiniDeck key={index} color={color} />
       ))}
-    </DeckContainer>
+    </S.DeckContainer>
   );
 }
