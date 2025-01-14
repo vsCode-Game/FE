@@ -29,9 +29,9 @@ export default function SignUp() {
 
   const onSubmit: SubmitHandler<signUpSchema> = async (data) => {
     console.log("Submitted Data:", data);
-    const { passwordConfirm, profileImage, ...rest } = data;
+    const { passwordConfirm, profileImage, ...formData } = data;
 
-    const result = mutation.mutate(rest);
+    const result = mutation.mutate(formData);
     console.log(result);
   };
 
