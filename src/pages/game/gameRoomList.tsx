@@ -1,12 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
 import Button from "../../components/ui/button/Button";
 import * as S from "./gameRoomListStyle";
 import GameRoomCard from "../../components/ui/card/cardList/GameRoomCard";
-import axios, { AxiosError } from "axios";
-
-export const instance = axios.create({
-  baseURL: "https://api.davincicodegame.store",
-});
+import { useGetGameRoomList } from "../../hooks/useQuery";
 
 interface IGameRoom {
   id: number;
@@ -16,27 +11,8 @@ interface IGameRoom {
   createdAt: string;
 }
 
-export const getGameRoomsList = async () => {
-  try {
-    const { data } = await instance.get("/gameRoom");
-    return data;
-  } catch (error) {
-    const axiosError = error as AxiosError<unknown>;
-    if (axiosError.response) {
-      return axiosError.response.data;
-    }
-  }
-};
-
-export const useGetGameRooms = () => {
-  return useQuery({
-    queryKey: ["gameRoomsList"],
-    queryFn: getGameRoomsList,
-  });
-};
-
 export default function GameRoomList() {
-  const { data: gameRooms } = useGetGameRooms();
+  const { data: gameRooms } = useGetGameRoomList();
   console.log("gameRooms✅", gameRooms);
 
   return (
