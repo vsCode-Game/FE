@@ -1,5 +1,5 @@
 import iconExit from "@assets/images/icon_close.svg";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Flex, StyledHeader, TextButton } from "./GameRoomHeaderStyle";
 import { useOutRoomMutaion } from "../../../hooks/useMutation";
 
