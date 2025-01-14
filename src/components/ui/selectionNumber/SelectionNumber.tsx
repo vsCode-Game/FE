@@ -1,15 +1,5 @@
 import Button from "../button/Button";
-import {
-  NumberDetail,
-  Number,
-  Wrapper,
-  NumberWrapper,
-  ButtonWrapper,
-  DashBox,
-  NumberBox,
-  Footer,
-  FooterWrapper,
-} from "./selectionNumberStyle";
+import * as S from "./selectionNumberStyle";
 
 export default function SelectionNumber() {
   const numbersRow1 = [...Array.from({ length: 6 }, (_, index) => index)];
@@ -17,28 +7,28 @@ export default function SelectionNumber() {
   const numbersRow3 = [...Array.from({ length: 6 }, (_, index) => index + 6)];
 
   return (
-    <Wrapper>
-      <NumberWrapper>
-        <NumberBox>
-          <Number>
+    <S.Wrapper>
+      <S.NumberWrapper>
+        <S.NumberBox>
+          <S.Number>
             {numbersRow1.map((number, index) => (
-              <NumberDetail key={`row1-${index}`}>{number}</NumberDetail>
+              <S.NumberDetail key={`row1-${index}`}>{number}</S.NumberDetail>
             ))}
-          </Number>
-          <Number>
+          </S.Number>
+          <S.Number>
             {numbersRow3.map((number, index) => (
-              <NumberDetail key={`row3-${index}`}>{number}</NumberDetail>
+              <S.NumberDetail key={`row3-${index}`}>{number}</S.NumberDetail>
             ))}
-          </Number>
-        </NumberBox>
+          </S.Number>
+        </S.NumberBox>
 
-        <DashBox>
+        <S.DashBox>
           {numbersRow2.map((symbol, index) => (
-            <NumberDetail key={`row2-${index}`}>{symbol}</NumberDetail>
+            <S.NumberDetail key={`row2-${index}`}>{symbol}</S.NumberDetail>
           ))}
-        </DashBox>
-      </NumberWrapper>
-      <ButtonWrapper>
+        </S.DashBox>
+      </S.NumberWrapper>
+      <S.ButtonWrapper>
         <Button
           type="button"
           size="md"
@@ -48,10 +38,10 @@ export default function SelectionNumber() {
         >
           숫자 선택
         </Button>
-      </ButtonWrapper>
-      <FooterWrapper>
-        <Footer></Footer>
-      </FooterWrapper>
-    </Wrapper>
+      </S.ButtonWrapper>
+      <S.FooterWrapper>
+        <S.Footer></S.Footer>
+      </S.FooterWrapper>
+    </S.Wrapper>
   );
 }
