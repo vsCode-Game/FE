@@ -2,7 +2,7 @@ import Input from "@components/ui/input/Input";
 import Button from "@components/ui/button/Button";
 import CheckBox from "@components/ui/checkBox/CheckBox";
 import TextButton from "@components/ui/textButton/TextButton";
-import { useForm } from "react-hook-form";
+import { Controller, useForm, useFormContext } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schema, signUpSchema } from "./schema";
 import {
@@ -26,6 +26,7 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
     resolver: zodResolver(schema),
     mode: "onChange",
   });
+  const { control } = useFormContext();
   const navigate = useNavigate();
 
   const onClickPrev = () => {
@@ -38,12 +39,20 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
         <InputBox>
           <StyledLabel htmlFor="signupEmail">이메일</StyledLabel>
           <Flex>
-            <Input<signUpSchema>
-              type="text"
-              keyname="email"
-              id="signupEmail"
-              placeholder="이메일을 입력해 주세요."
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <Input<signUpSchema>
+                  type="text"
+                  keyname="email"
+                  id="signupEmail"
+                  placeholder="이메일을 입력해 주세요."
+                  {...field}
+                />
+              )}
             />
+
             <Button
               type="button"
               size="sm"
@@ -58,11 +67,18 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
         </InputBox>
         <InputBox>
           <StyledLabel htmlFor="signupPassword">비밀번호</StyledLabel>
-          <Input<signUpSchema>
-            type="text"
-            keyname="password"
-            id="signupPassword"
-            placeholder="비밀번호를 입력해 주세요."
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <Input<signUpSchema>
+                type="password"
+                keyname="password"
+                id="signupPassword"
+                placeholder="비밀번호를 입력해 주세요."
+                {...field}
+              />
+            )}
           />
           <ErrorMessage>
             {methods.formState.errors.password?.message}
@@ -72,11 +88,18 @@ export default function SignUpStepOne({ onNext }: SignUpStepProps) {
           <StyledLabel htmlFor="signupPasswordConfirm">
             비밀번호 확인
           </StyledLabel>
-          <Input<signUpSchema>
-            type="text"
-            keyname="passwordConfirm"
-            id="signupPasswordConfirm"
-            placeholder="비밀번호를 한번 더 입력해 주세요."
+          <Controller
+            name="passwordConfirm"
+            control={control}
+            render={({ field }) => (
+              <Input<signUpSchema>
+                type="password"
+                keyname="passwordConfirm"
+                id="signupPasswordConfirm"
+                placeholder="비밀번호를 한번 더 입력해 주세요."
+                {...field}
+              />
+            )}
           />
           <ErrorMessage>
             {methods.formState.errors.passwordConfirm?.message}

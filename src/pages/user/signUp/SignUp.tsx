@@ -9,6 +9,7 @@ import {
   StepBasic,
   Stepper,
 } from "./SignUpStyle";
+import { SubmitHandler } from "react-hook-form";
 
 const steps = ["기본정보 입력", "프로필 설정"];
 
@@ -23,7 +24,9 @@ export default function SignUp() {
     setStep(targetStep);
   };
 
-  const submitSignup = () => {};
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log("Submitted Data:", data);
+  };
 
   return (
     <>
@@ -42,7 +45,18 @@ export default function SignUp() {
             </>
           )}
         </Stepper>
-        <Form formOptions={{ mode: "onChange" }} onSubmit={submitSignup}>
+        <Form<FormData>
+          onSubmit={onSubmit}
+          formOptions={{
+            defaultValues: {
+              email: "",
+              password: "",
+              passwordConfirm: "",
+              nickname: "",
+              profileImage: "",
+            },
+          }}
+        >
           <FormWrapper>
             <SignUpStep
               steps={steps}
