@@ -1,7 +1,7 @@
 import Button from "@components/ui/button/Button";
 import Input from "@components/ui/input/Input";
 import defaultImage from "@assets/images/image_profile_01.svg";
-import { useForm } from "react-hook-form";
+import { Controller, useForm, useFormContext } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schema, signUpSchema } from "./schema";
 import {
@@ -26,6 +26,8 @@ export default function SignUpStepTwo({ onPrev }: SignUpStepProps) {
     mode: "onChange",
   });
 
+  const { control } = useFormContext();
+
   return (
     <>
       <FlexCol>
@@ -39,12 +41,19 @@ export default function SignUpStepTwo({ onPrev }: SignUpStepProps) {
                 프로필 사진 추가하기
               </ButtonLabel>
             </Button>
-            <Input<signUpSchema>
-              type="file"
-              keyname="profileImage"
-              id="profileImage"
-              style={{ display: "none" }}
-              accept=".png, .jpeg, .jpg"
+            <Controller
+              name="profileImage"
+              control={control}
+              render={({ field }) => (
+                <Input<signUpSchema>
+                  type="file"
+                  keyname="profileImage"
+                  id="profileImage"
+                  style={{ display: "none" }}
+                  accept=".png, .jpeg, .jpg"
+                  {...field}
+                />
+              )}
             />
           </Flex>
           <Tip>
@@ -53,11 +62,18 @@ export default function SignUpStepTwo({ onPrev }: SignUpStepProps) {
         </div>
         <InputBox>
           <StyledLabel htmlFor="signupNickname">닉네임</StyledLabel>
-          <Input<signUpSchema>
-            type="text"
-            keyname="nickname"
-            id="signupNickname"
-            placeholder="사용할 닉네임을 두글자 이상 입력해 주세요."
+          <Controller
+            name="nickname"
+            control={control}
+            render={({ field }) => (
+              <Input<signUpSchema>
+                type="text"
+                keyname="nickname"
+                id="signupNickname"
+                placeholder="사용할 닉네임을 두글자 이상 입력해 주세요."
+                {...field}
+              />
+            )}
           />
           <ErrorMessage>{methods.formState.errors.email?.message}</ErrorMessage>
         </InputBox>
