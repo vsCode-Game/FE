@@ -8,7 +8,7 @@ import CheckPassword from "@pages/mypage/checkPassword/CheckPassword";
 import UpdateMyPage from "@pages/mypage/updateMypage/UpdateMyPage";
 import GameRoom from "@pages/game/GameRoom";
 import Game from "@pages/game/Game";
-import { TestInput } from "../pages/testInput/TestInput";
+import TestPage from "../pages/testpage/testpage";
 
 export const router = createBrowserRouter([
   {
@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/test",
-        element: <TestInput />,
+        element: <TestPage />,
       },
     ],
   },
