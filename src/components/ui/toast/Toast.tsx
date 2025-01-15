@@ -5,7 +5,6 @@ import styled, { keyframes } from "styled-components";
 export default function Toast() {
   const toasts = useToastStore((state) => state.toasts);
   const element = document.getElementById("toast-root") as HTMLElement;
-  console.log(element);
 
   return createPortal(
     toasts.length > 0 ? (
