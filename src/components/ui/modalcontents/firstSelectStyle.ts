@@ -22,9 +22,3 @@ export const deckContainer = styled.div`
   gap: 20px;
   justify-content: center;
 `;
-
-export const testBox = styled.div`
-  width: 460px;
-  border-radius: 50px;
-  background-color: var(--color-gray-0);
-`;
