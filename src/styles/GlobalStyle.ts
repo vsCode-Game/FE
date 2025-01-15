@@ -120,10 +120,24 @@ html, body {
 #root {
   width: 100%;
   height: 100%;
+  z-index: 999;
 }
 
 *{
   box-sizing: border-box !important;
+}
+
+#toast-root {
+    position: absolute;
+    top: 180px;
+    display: flex;
+  gap: 10px;
+  flex-direction: column;
+    align-items: center;
+    width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  z-index: 1;
 }
 
 `;
