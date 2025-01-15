@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components";
 
 const baseStyle = css`
-  width: 460px;
+  width: 480px;
   min-height: 400px;
   height: fit-content;
   border-radius: 50px;
   overflow: hidden;
   font-size: 20px;
+  padding: 45px;
 `;
 
 const modalStyles = {
