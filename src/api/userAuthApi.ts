@@ -54,16 +54,14 @@ export const loginUser = async (logInfo: {
 
 export const refreshToken = async () => {
   try {
-    const response = await authInstance.post("/auth/refresh", {
-      withCredentials: true,
-    });
+    const response = await authInstance.post("/auth/refresh");
     console.log(response);
-    const accessToken = response?.headers.authorization;
+    const { accessToken } = response.data;
 
     localStorage.setItem("accessToken", accessToken);
     return response.data.accessToken;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
   }
 };
 

@@ -9,18 +9,16 @@ export const container = styled.div`
 `;
 
 export const leftContainer = styled.div`
-  padding-top: 44px;
-  margin-left: 63px;
   width: 390px;
-  height: 100%;
+  height: 1000px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: yellow;
-  gap: 90px;
 `;
 
 export const centerContainer = styled.div`
-  height: 100%;
+  height: 1000px;
   width: 100%;
   background-color: green;
   position: relative;
@@ -30,7 +28,7 @@ export const rightContainer = styled.div`
   margin-right: 77px;
   padding-bottom: 44px;
   width: 390px;
-  height: 100%;
+  height: 1000px;
   display: flex;
   gap: 40px;
   flex-direction: column;

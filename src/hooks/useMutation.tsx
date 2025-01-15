@@ -32,7 +32,7 @@ export const useCreateRoomMutation = () => {
   });
 };
 
-export const useJoinRoomMutation = () => {
+export const useJoinGameRoomMutation = () => {
   const navigate = useNavigate();
   return useMutation({
     mutationFn: joinGameRoom,
