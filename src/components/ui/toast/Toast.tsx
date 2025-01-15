@@ -8,13 +8,15 @@ export default function Toast() {
   console.log(element);
 
   return createPortal(
-    toasts.length > 0 && (
-      <ToastFrame>
+    toasts.length > 0 ? (
+      <>
         {toasts.map(({ id, message }) => (
-          <ToastMessage key={id}>{message}</ToastMessage>
+          <ToastFrame key={id}>
+            <ToastMessage>{message}</ToastMessage>
+          </ToastFrame>
         ))}
-      </ToastFrame>
-    ),
+      </>
+    ) : null,
     element,
   );
 }
@@ -38,6 +40,7 @@ const ToastFrame = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   background: radial-gradient(
     78.68% 145.31% at 50% 100.71%,
     var(--color-primary) 0%,
