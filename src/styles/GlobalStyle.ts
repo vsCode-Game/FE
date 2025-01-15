@@ -127,13 +127,6 @@ html, body {
   box-sizing: border-box !important;
 }
 
-/* #modal-root {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-} */
-
 #toast-root {
     position: absolute;
     top: 180px;

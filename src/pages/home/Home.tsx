@@ -1,13 +1,12 @@
-import useModalStore from "@store/useModalStore";
 import useToast from "@hooks/useToast";
+import { useModal } from "../../hooks/useModal";
 
 export default function Home() {
-  const { showModal, setShowModal } = useModalStore();
   const openToast = useToast();
+  const { openModal } = useModal();
 
   const onClickModal = () => {
-    setShowModal(true);
-    console.log(showModal);
+    openModal("selectDeck", "white");
   };
 
   const onClickToast = () => {
