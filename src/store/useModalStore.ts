@@ -1,13 +1,19 @@
 import { create } from "zustand";
 
-interface IModalState {
+type ModalState = {
   showModal: boolean;
-  setShowModal: (value: boolean) => void;
-}
+  currentModal: string | null;
+  modalColor: string;
+  openModal: (modalName: string, color?: string) => void;
+  closeModal: () => void;
+};
 
-const useModalStore = create<IModalState>((set) => ({
+export const useModalStore = create<ModalState>((set) => ({
   showModal: false,
-  setShowModal: (value: boolean) => set({ showModal: value }),
+  currentModal: null,
+  modalColor: "",
+  openModal: (modalName, color = "white") =>
+    set({ showModal: true, currentModal: modalName, modalColor: color }),
+  closeModal: () =>
+    set({ showModal: false, currentModal: null, modalColor: "" }),
 }));
-
-export default useModalStore;
