@@ -1,8 +1,8 @@
-import { useModalStore } from "../../../store/useModalStore";
-import { Inside, ModalFrame, Overlay } from "./modalStyle";
+import ModalPortal from "./ModalPortal";
 import FirstSelect from "../modalContents/FirstSelect";
 import MakeRoom from "../modalContents/MakeRoom";
-import ModalPortal from "./ModalPortal";
+import { useModalStore } from "../../../store/useModalStore";
+import { Inside, ModalFrame, Overlay } from "./modalStyle";
 
 const modalComponents: Record<string, React.ReactNode> = {
   firstSelect: <FirstSelect />,
