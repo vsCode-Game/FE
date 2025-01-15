@@ -7,7 +7,7 @@ import { IRoomNameSchema } from "./schema";
 import { useCreateRoomMutation } from "@hooks/useMutation";
 
 export default function MakeRoom() {
-  const methods = useForm();
+  const methods = useForm<IRoomNameSchema>();
   const mutation = useCreateRoomMutation();
   const { closeModal } = useModal();
 
@@ -15,18 +15,19 @@ export default function MakeRoom() {
     closeModal();
   };
 
-  const onClickMakeRoom = async (data: IRoomNameSchema) => {
-    const result = mutation.mutate(data);
-    console.log(result);
+  const onClickSubmit = async (data: IRoomNameSchema) => {
+    console.log(data, "data확인");
+    mutation.mutate(data);
+    closeModal();
   };
 
   return (
     <FormProvider {...methods}>
-      <S.container>
+      <S.container onSubmit={methods.handleSubmit(onClickSubmit)}>
         <S.title>방 만들기</S.title>
         <S.inputContainer>
           <S.label>방 이름</S.label>
-          <Input type="text" keyname="roomName" />
+          <Input<IRoomNameSchema> type="text" keyname="roomName" />
         </S.inputContainer>
         <S.warningContainer>
           욕설이나 이용자에게 불쾌감을 줄 수 있는 단어가 포함되지 않도록 주의해
@@ -45,11 +46,10 @@ export default function MakeRoom() {
           </Button>
 
           <Button
-            type="button"
+            type="submit"
             size="l"
             textcolor="black"
             bgcolor="green"
-            onClick={onClickMakeRoom}
             width="50%"
           >
             방 만들기
