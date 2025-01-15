@@ -1,17 +1,22 @@
 import iconExit from "@assets/images/icon_close.svg";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { Flex, StyledHeader, TextButton } from "./GameRoomHeaderStyle";
-import { useOutRoomMutaion } from "../../../hooks/useMutation";
+
+import { useSocketStore } from "../../../store/useSocketStore";
 
 export default function GameRoomHeader() {
   const params = useParams();
   const roomId = Number(params.id);
-  const mutation = useOutRoomMutaion();
-
-  const onClickOut = (roomId: number) => {
-    mutation.mutate(roomId);
-    console.log("방나가기 성공asdfasdf");
+  const navigate = useNavigate();
+  const { socket } = useSocketStore();
+  const onClickOut = async (roomId: number) => {
+    if (!socket) {
+      return;
+    }
+    socket.emit("leaveRoom", { roomId });
+    navigate("/game");
   };
+
   return (
     <>
       <StyledHeader>
