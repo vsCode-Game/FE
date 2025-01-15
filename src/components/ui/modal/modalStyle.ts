@@ -1,6 +1,39 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Modal = styled.div`
+const baseStyle = css`
+  width: 480px;
+  min-height: 400px;
+  height: fit-content;
+  border-radius: 50px;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 45px;
+`;
+
+const modalStyles = {
+  white: css`
+    ${baseStyle};
+    background-color: white;
+  `,
+  blue: css`
+    ${baseStyle};
+    background: linear-gradient(180deg, #fff 0%, #d2dfff 100%);
+    border: 1px solid var(--color-gray-999);
+  `,
+};
+
+export const ModalFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+`;
+
+export const Overlay = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,13 +43,6 @@ export const Modal = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
 `;
 
-export const Inside = styled.div`
-  min-width: 400px;
-  min-height: 400px;
-  height: fit-content;
-  background-color: var(--color-gray-0);
-  border-radius: 50px;
-  overflow: hidden;
-  font-size: 20px;
-  color: var(--color-warning);
+export const Inside = styled.div<{ styleKey: keyof typeof modalStyles }>`
+  ${({ styleKey }) => modalStyles[styleKey] || modalStyles.white}
 `;
