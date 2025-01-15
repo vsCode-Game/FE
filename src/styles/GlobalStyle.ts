@@ -126,11 +126,19 @@ html, body {
   box-sizing: border-box !important;
 }
 
-#modal-root {
+/* #modal-root {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+} */
+
+#toast-root {
+    position: absolute;
+    top: 180px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 `;
