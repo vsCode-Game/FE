@@ -2,7 +2,7 @@ import Button from "../../components/ui/button/Button";
 import * as S from "./gameRoomListStyle";
 import GameRoomCard from "../../components/ui/card/cardList/GameRoomCard";
 import { useGetGameRoomList } from "../../hooks/useQuery";
-import { useNavigate } from "react-router-dom";
+import { useModal } from "../../hooks/useModal";
 
 interface IGameRoom {
   id: number;
@@ -13,13 +13,14 @@ interface IGameRoom {
 }
 
 export default function GameRoomList() {
+  const { openModal } = useModal();
   const { data: gameRooms } = useGetGameRoomList();
   console.log("gameRooms✅", gameRooms);
-  const navigate = useNavigate();
 
-  const onClickButton = () => {
-    navigate("/test");
+  const onClickModalOpen = () => {
+    openModal("makeRoom", "white");
   };
+
   return (
     <S.container>
       <S.buttonContainer>
@@ -29,9 +30,9 @@ export default function GameRoomList() {
           bgcolor="green"
           textcolor="black"
           width="180px"
-          onClick={onClickButton}
+          onClick={onClickModalOpen}
         >
-          + 방만들기
+          + 방 만들기
         </Button>
       </S.buttonContainer>
       <S.gameroomListContainer>
