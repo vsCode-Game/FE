@@ -1,10 +1,12 @@
 import { useModalStore } from "../../../store/useModalStore";
-import ModalPortal from "./ModalPortal";
-import SelectDeckModal from "./SelectDeckModal";
 import { Inside, ModalFrame, Overlay } from "./modalStyle";
+import FirstSelect from "../modalContents/FirstSelect";
+import MakeRoom from "../modalContents/MakeRoom";
+import ModalPortal from "./ModalPortal";
 
 const modalComponents: Record<string, React.ReactNode> = {
-  selectDeck: <SelectDeckModal />,
+  firstSelect: <FirstSelect />,
+  makeRoom: <MakeRoom />,
 };
 
 export default function Modal() {
