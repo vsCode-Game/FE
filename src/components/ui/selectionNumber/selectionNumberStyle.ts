@@ -1,60 +1,79 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-  width: 375px;
-  height: 220px;
+export const NumberBox = styled.div`
   display: flex;
-  flex-direction: column;
+  gap: 10px;
   align-items: center;
-  border-radius: 12px;
-  border: 1px solid var(--gray-999, #000);
-  background: linear-gradient(180deg, #fff 0%, #d2dfff 100%);
-  position: relative;
-  overflow: hidden;
-  padding: 23px 14px 27px 26px;
 `;
 
 export const NumberWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
-export const NumberBox = styled.div``;
-export const Number = styled.div`
+
+export const NumberRow = styled.div`
   display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
 `;
-export const NumberDetail = styled.div`
+
+export const HypenBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+export const NumberDetail = styled.button<{ isSelected: boolean }>`
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  border: 1px solid var(--color-gray-999);
+  border: 1px solid
+    ${({ isSelected }) =>
+      isSelected ? "var(--color-green, #44ff92)" : "var(--color-gray-999)"};
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray-0, #fff);
-  background-color: var(--color-gray-999);
-  margin-right: 9px;
-  margin-bottom: 14px;
+  color: ${({ isSelected }) =>
+    isSelected ? "var(--gray-999, #000)" : "var(--gray-0, #fff)"};
+  background-color: ${({ isSelected }) =>
+    isSelected ? "var(--color-green, #44ff92)" : "var(--color-gray-999)"};
   font-size: 24px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
 `;
-export const DashBox = styled.div`
+
+export const HypenLabel = styled.button<{ isSelected: boolean }>`
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid
+    ${({ isSelected }) =>
+      isSelected ? "var(--color-green, #44ff92)" : "var(--color-gray-999)"};
   display: flex;
   align-items: center;
-`;
-export const ButtonWrapper = styled.div`
-  display: flex;
   justify-content: center;
-  margin-top: 10px;
-`;
-export const FooterWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: 0;
-`;
-export const Footer = styled.div`
-  width: 100%;
-  height: 9px;
-  background: linear-gradient(90deg, #fffba6 0%, #44ff92 100%);
+  color: ${({ isSelected }) =>
+    isSelected ? "var(--gray-999, #000)" : "var(--gray-0, #fff)"};
+  background-color: ${({ isSelected }) =>
+    isSelected ? "var(--color-green, #44ff92)" : "var(--color-gray-999)"};
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
 `;
