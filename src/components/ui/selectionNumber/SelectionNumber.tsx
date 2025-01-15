@@ -1,47 +1,40 @@
-import Button from "../button/Button";
+import { useState } from "react";
 import * as S from "./selectionNumberStyle";
 
-export default function SelectionNumber() {
-  const numbersRow1 = [...Array.from({ length: 6 }, (_, index) => index)];
-  const numbersRow2 = ["-"];
-  const numbersRow3 = [...Array.from({ length: 6 }, (_, index) => index + 6)];
+export default function SelectNumber() {
+  const [selectedNumber, setSelectedNumber] = useState<string | null>(null);
+
+  const handleSelect = (value: string) => {
+    setSelectedNumber(value);
+  };
+
+  const numbers = Array.from({ length: 12 }, (_, i) => i.toString());
 
   return (
-    <S.Wrapper>
+    <S.NumberBox>
       <S.NumberWrapper>
-        <S.NumberBox>
-          <S.Number>
-            {numbersRow1.map((number, index) => (
-              <S.NumberDetail key={`row1-${index}`}>{number}</S.NumberDetail>
+        {[0, 6].map((startIndex) => (
+          <S.NumberRow key={`row-${startIndex}`}>
+            {numbers.slice(startIndex, startIndex + 6).map((number) => (
+              <S.NumberDetail
+                key={number}
+                isSelected={selectedNumber === number}
+                onClick={() => handleSelect(number)}
+              >
+                {number}
+              </S.NumberDetail>
             ))}
-          </S.Number>
-          <S.Number>
-            {numbersRow3.map((number, index) => (
-              <S.NumberDetail key={`row3-${index}`}>{number}</S.NumberDetail>
-            ))}
-          </S.Number>
-        </S.NumberBox>
-
-        <S.DashBox>
-          {numbersRow2.map((symbol, index) => (
-            <S.NumberDetail key={`row2-${index}`}>{symbol}</S.NumberDetail>
-          ))}
-        </S.DashBox>
+          </S.NumberRow>
+        ))}
       </S.NumberWrapper>
-      <S.ButtonWrapper>
-        <Button
-          type="button"
-          size="md"
-          bgcolor="green"
-          textcolor="black"
-          width="160px"
+      <S.HypenBox>
+        <S.HypenLabel
+          isSelected={selectedNumber === "-"}
+          onClick={() => handleSelect("-")}
         >
-          숫자 선택
-        </Button>
-      </S.ButtonWrapper>
-      <S.FooterWrapper>
-        <S.Footer></S.Footer>
-      </S.FooterWrapper>
-    </S.Wrapper>
+          -
+        </S.HypenLabel>
+      </S.HypenBox>
+    </S.NumberBox>
   );
 }
