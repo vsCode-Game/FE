@@ -14,7 +14,7 @@ export const CardIndex = styled.div`
   line-height: 46px;
 `;
 
-export const PlayerCard = styled.div`
+export const PlayerCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 22px;

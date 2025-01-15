@@ -126,12 +126,12 @@ html, body {
   box-sizing: border-box !important;
 }
 
-#modal-root {
+/* #modal-root {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
 `;
 

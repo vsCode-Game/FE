@@ -20,6 +20,7 @@ export default function GameRoomList() {
   const onClickButton = () => {
     navigate("/test");
   };
+
   return (
     <S.container>
       <S.buttonContainer>

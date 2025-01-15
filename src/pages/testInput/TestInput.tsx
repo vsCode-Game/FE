@@ -8,8 +8,7 @@ export function TestInput() {
   const mutation = useCreateRoomMutation();
   const onClickSubmit = async (data: IRoomNameSchema) => {
     console.log("방만들기실행");
-    const result = mutation.mutate(data);
-    console.log("방만들기 결과 확인", result);
+    mutation.mutate(data);
   };
 
   return (
