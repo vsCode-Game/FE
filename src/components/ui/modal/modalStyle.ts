@@ -42,6 +42,6 @@ export const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
 `;
 
-export const Inside = styled.div<{ styleKey: string }>`
-  ${({ styleKey }) => modalStyles[styleKey]}
+export const Inside = styled.div<{ styleKey: keyof typeof modalStyles }>`
+  ${({ styleKey }) => modalStyles[styleKey] || modalStyles.white}
 `;
