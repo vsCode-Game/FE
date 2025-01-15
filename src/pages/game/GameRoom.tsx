@@ -16,19 +16,6 @@ interface IUser {
   userNickname: string;
 }
 
-interface IRoomName {
-  id: number;
-  roomName: string;
-  maxPlayers: number;
-  currentCount: number;
-  createdAt: string;
-}
-
-interface IGameRoomInfo {
-  roomName: IRoomName;
-  users: IUser[];
-}
-
 interface IJoinRoomResponse {
   sender: string;
   userNickname: string;
@@ -40,11 +27,6 @@ interface IJwtDecode {
   iat: number;
   userEmail: string;
   userId: number;
-}
-
-interface IMyInfo {
-  id: number;
-  roomId: number;
 }
 
 export default function GameRoom() {

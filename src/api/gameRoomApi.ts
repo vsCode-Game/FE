@@ -37,7 +37,7 @@ export const getGameRoomsList = async () => {
 export const getGameRoomInfo = async (roomId: number) => {
   try {
     const response = await authInstance.get(`/gameRoom/${roomId}`);
-    console.log(response.data, "액시오스 리스폰스");
+
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<unknown>;
@@ -62,7 +62,6 @@ export const createGameRoom = async ({
       },
     );
 
-    const createRoom = response.data.room;
     return response.data;
   } catch (error) {
     const axiosError = error as AxiosError<{ message: string }>;
