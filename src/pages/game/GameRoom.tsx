@@ -36,6 +36,23 @@ interface IReadyData {
   ready: boolean;
 }
 
+interface IJoinData {
+  sender: string;
+  userNickname: string;
+  message: string;
+}
+
+interface ILeaveData {
+  sender: string;
+  userNickname: string;
+  message: string;
+}
+
+interface IGameStartData {
+  starterUserId: number;
+  message: string;
+}
+
 export default function GameRoom() {
   const { socket, setSocket } = useSocketStore();
   const params = useParams();
@@ -96,13 +113,13 @@ export default function GameRoom() {
   useEffect(() => {
     if (!socket) return;
 
-    const handleJoin = async (data) => {
+    const handleJoin = async (data: IJoinData) => {
       console.log(`${JSON.stringify(data)}`);
       const refetchInfo = await refetch();
       console.log(refetchInfo, "Refetch Info");
     };
 
-    const handleLeave = async (data) => {
+    const handleLeave = async (data: ILeaveData) => {
       console.log(`${JSON.stringify(data)}`);
     };
 
@@ -115,7 +132,7 @@ export default function GameRoom() {
       }
     };
 
-    const handleGameStart = async (data) => {
+    const handleGameStart = async (data: IGameStartData) => {
       console.log(`${JSON.stringify(data)}`);
     };
 

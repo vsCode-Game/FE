@@ -15,7 +15,6 @@ interface IOtherProfileCard {
 export default function OtherProfileCard({
   nickname,
   children,
-  roomId,
   otherInfo = [],
   otherReady,
 }: IOtherProfileCard) {
