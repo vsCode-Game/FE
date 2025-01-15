@@ -22,7 +22,10 @@ export default function Modal() {
             </Inside>
           </Overlay>
         ) : (
-          <Inside onClick={(e) => e.stopPropagation()} styleKey={modalColor}>
+          <Inside
+            onClick={(e) => e.stopPropagation()}
+            styleKey={modalColor as "white" | "blue"}
+          >
             {currentModal ? modalComponents[currentModal] : null}
           </Inside>
         )}
