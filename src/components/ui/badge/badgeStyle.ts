@@ -28,6 +28,10 @@ export const Badge = styled.div<IBadgeProps>`
         return `
           background: radial-gradient(120% 120% at 50% 100%, #FF5E5E 0%, #FFFFFF 100%);
         `;
+      case "ready":
+        return `
+          background: radial-gradient(120% 120% at 50% 100%, #2571FF 0%, #FFFFFF 100%);
+        `;
     }
   }};
 `;
