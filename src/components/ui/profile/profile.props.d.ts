@@ -1,5 +1,5 @@
 interface IprofileProps {
-  nickname: string;
-  rank: string | number;
+  nickname: string | undefined;
+  rank?: string | number;
   avatar?: string;
 }

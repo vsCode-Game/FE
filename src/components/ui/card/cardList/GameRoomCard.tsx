@@ -1,14 +1,18 @@
-import { useJoinRoomMutation } from "../../../../hooks/useMutation";
+import { useJoinGameRoomMutation } from "../../../../hooks/useMutation";
+import { useRoomIdStore } from "../../../../store/useRoomIdStore";
 import Badge from "../../badge/Badge";
 import Button from "../../button/Button";
 import * as S from "./GameRoomCardStyle";
 
 export default function GameRoomCard({ room }: { room: IRoomProps }) {
+  const { setRoomId } = useRoomIdStore();
   const disabled = room.currentCount === 2 ? true : false;
-  const mutation = useJoinRoomMutation();
+  const mutation = useJoinGameRoomMutation();
   const onClickJoin = (roomId: number) => {
+    setRoomId(roomId);
     mutation.mutate(roomId);
   };
+
   return (
     <S.cardContainer>
       <Badge playerNumber={room.currentCount} />
