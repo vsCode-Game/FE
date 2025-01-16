@@ -1,4 +1,3 @@
-import Rangking from "../../components/ui/ranking/Ranking";
 import { useModal } from "../../hooks/useModal";
 
 export default function TestPage() {

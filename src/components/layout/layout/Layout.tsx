@@ -7,22 +7,30 @@ import { Outlet, useLocation } from "react-router-dom";
 import { Wrapper, Container } from "./LayoutStyle";
 import { useModalStore } from "@store/useModalStore";
 
-const HIDDEN_HEADERS = "/game/room/";
+const GAME_ROOM = "/game/room/";
+const HIDDEN_HEADER_FOOTER = "/home";
 
 export default function Layout() {
   const { showModal } = useModalStore();
   const location = useLocation();
   const pathname = location.pathname;
-  const isHiddenHeader = pathname.includes(HIDDEN_HEADERS);
+  const isGameRoom = pathname.includes(GAME_ROOM);
+  const isHiddenHeaderFooter = pathname.includes(HIDDEN_HEADER_FOOTER);
 
   return (
     <>
       <Wrapper>
-        {!isHiddenHeader ? <Header /> : <GameRoomHeader />}
+        {isHiddenHeaderFooter ? (
+          ""
+        ) : !isGameRoom ? (
+          <Header />
+        ) : (
+          <GameRoomHeader />
+        )}
         <Container>
           <Outlet />
         </Container>
-        <Footer />
+        {!isHiddenHeaderFooter && <Footer />}
       </Wrapper>
 
       <Toast />

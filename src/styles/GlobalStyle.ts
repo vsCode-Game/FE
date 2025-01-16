@@ -99,14 +99,14 @@ img {
   --radius-md: 14px;
   --radius-lg: 50%; 
 
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw;
+  height: 100vh; */
 }
 
-html, body {
+/* html, body {
   width: 100vw;
   height: 100vh;
-}
+} */
 
   body {
   -webkit-touch-callout: none; /* iOS Safari */
