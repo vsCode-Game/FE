@@ -3,10 +3,16 @@ import FirstSelect from "../modalContents/FirstSelect";
 import MakeRoom from "../modalContents/MakeRoom";
 import { useModalStore } from "../../../store/useModalStore";
 import { Inside, ModalFrame, Overlay } from "./modalStyle";
+import BigDeck from "../bigDeck/BigDeck";
+import TurnWaiting from "../modalContents/TurnWaiting";
+import GameWaiting from "../modalContents/GameWaiting";
 
 const modalComponents: Record<string, React.ReactNode> = {
   firstSelect: <FirstSelect />,
   makeRoom: <MakeRoom />,
+  selectWhiteBlack: <BigDeck />,
+  turnWaiting: <TurnWaiting />,
+  gameWaiting: <GameWaiting />,
 };
 
 export default function Modal() {
