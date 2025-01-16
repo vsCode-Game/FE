@@ -22,7 +22,7 @@ export default function Header() {
     <>
       <StyledHeader>
         <Logo>
-          <NavLink to="/">
+          <NavLink to="/game">
             <img src={logo} />
           </NavLink>
         </Logo>

@@ -11,6 +11,7 @@ export default function Button({
   disabled,
   width,
   playerNumber,
+  ...props
 }: IButtonProps) {
   return (
     <S.Button
@@ -22,6 +23,7 @@ export default function Button({
       textcolor={textcolor}
       width={width}
       playerNumber={playerNumber}
+      {...props}
     >
       {children}
     </S.Button>
