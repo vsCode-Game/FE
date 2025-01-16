@@ -1,6 +1,7 @@
 import Button from "../../components/ui/button/Button";
 import * as S from "./gameRoomListStyle";
 import GameRoomCard from "../../components/ui/card/cardList/GameRoomCard";
+import iconPlus from "@assets/images/icon_plus.svg";
 import { useGetGameRoomList } from "../../hooks/useQuery";
 import { useModal } from "../../hooks/useModal";
 
@@ -32,7 +33,9 @@ export default function GameRoomList() {
           width="180px"
           onClick={onClickModalOpen}
         >
-          + 방 만들기
+          <img src={iconPlus} alt="더하기 아이콘" />
+
+          <S.buttonText>방 만들기</S.buttonText>
         </Button>
       </S.buttonContainer>
       <S.gameroomListContainer>
