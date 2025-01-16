@@ -1,11 +1,11 @@
 import ModalPortal from "./ModalPortal";
 import FirstSelect from "../modalContents/FirstSelect";
 import MakeRoom from "../modalContents/MakeRoom";
-import { useModalStore } from "../../../store/useModalStore";
-import { Inside, ModalFrame, Overlay } from "./modalStyle";
 import BigDeck from "../bigDeck/BigDeck";
 import TurnWaiting from "../modalContents/TurnWaiting";
 import GameWaiting from "../modalContents/GameWaiting";
+import { useModalStore } from "../../../store/useModalStore";
+import { Inside, ModalFrame, Overlay } from "./modalStyle";
 import { useEffect } from "react";
 import { useModal } from "@hooks/useModal";
 
@@ -39,9 +39,9 @@ export default function Modal() {
 
   return (
     <ModalPortal>
-      <ModalFrame>
+      <ModalFrame onClick={closeModal}>
         {modalColor === "white" ? (
-          <Overlay>
+          <Overlay onClick={closeModal}>
             <Inside onClick={(e) => e.stopPropagation()} styleKey={modalColor}>
               {currentModal ? modalComponents[currentModal] : null}
             </Inside>
