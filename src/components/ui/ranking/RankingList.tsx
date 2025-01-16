@@ -3,7 +3,12 @@ import silver from "../../../assets/images/icon_silver.svg";
 import bronze from "../../../assets/images/icon_bronze.svg";
 import { BronzeImage, GoldImage, SilverImage } from "./rankingListStyle";
 
-export default function RankingList({ nickname, index }) {
+interface IRankingList {
+  nickname: string;
+  index: number;
+}
+
+export default function RankingList({ nickname, index }: IRankingList) {
   return (
     <div>
       <p>
