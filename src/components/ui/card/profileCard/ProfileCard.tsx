@@ -2,17 +2,31 @@ import { ReactNode } from "react";
 import PlayerCard from "./playerCard/playerCard";
 import * as S from "./ProfileCardStyle";
 
-interface IProfileCard {
-  nickname: string | undefined;
+interface IMyProfileCard {
+  nickname?: string;
   children: ReactNode;
+  roomId: number;
+  myReady: boolean;
+  handleMyReady: () => void;
 }
 
-export default function ProfileCard({ nickname, children }: IProfileCard) {
+export default function MyProfileCard({
+  nickname,
+  children,
+  roomId,
+  myReady,
+  handleMyReady,
+}: IMyProfileCard) {
   return (
     <div>
       <S.CardIndex>{children}</S.CardIndex>
       <S.PlayerCardContainer>
-        <PlayerCard nickname={nickname} />
+        <PlayerCard
+          myReady={myReady}
+          handleMyReady={handleMyReady}
+          roomId={roomId}
+          nickname={nickname}
+        />
       </S.PlayerCardContainer>
     </div>
   );
