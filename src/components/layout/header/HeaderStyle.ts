@@ -10,6 +10,7 @@ export const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 55px 30px 0;
+  width: 100vw;
 `;
 
 export const Logo = styled.h1`
@@ -18,7 +19,9 @@ export const Logo = styled.h1`
 
 export const NavList = styled.ul`
   display: flex;
+  align-items: center;
   gap: 20px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
+  margin-top: -90px;
 `;

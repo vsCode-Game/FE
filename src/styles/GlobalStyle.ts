@@ -3,40 +3,6 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 
 
-  :root {
-    background-color: #fff;
-    /* variables */
-    --color-primary: #44FF92;
-    --color-secondary: #2571FF;
-    --color-rose: #FF5E5E;
-    --color-warning: #FF5E5E;
-    --color-yellow-100: #FFF740;
-    --color-yellow-500: #FFFBA6;
-    --color-yellow-900: #FFFDD7;
-    --color-gray-0: #FFFFFF;
-    --color-gray-100: #F8F8F8;
-    --color-gray-200: #E4E4E4;
-    --color-gray-300: #C5C5C5;
-    --color-gray-400: #949494;
-    --color-gray-500: #7F7F7F;
-    --color-gray-600: #6C6C6C;
-    --color-gray-700: #454545;
-    --color-gray-800: #232323;
-    --color-gray-900: #121212;
-    --color-gray-999: #000000;
-    --shadow: 1px 1px 5px 0 rgba(176, 176, 176, 0.5);
-    --radius-sm: 12px;
-    --radius-md: 14px;
-    --radius-lg: 50%; 
-
-    width: 100vw;
-    height: 100vh;
-  }
-
-  *{
-    box-sizing: border-box;
-  }
-  
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -105,15 +71,75 @@ img {
   vertical-align: top;
 }
 
+
+
+:root {
+  background-color: #fff;
+  /* variables */
+  --color-primary: #44FF92;
+  --color-secondary: #2571FF;
+  --color-rose: #FF5E5E;
+  --color-warning: #FF5E5E;
+  --color-yellow-100: #FFF740;
+  --color-yellow-500: #FFFBA6;
+  --color-yellow-900: #FFFDD7;
+  --color-gray-0: #FFFFFF;
+  --color-gray-100: #F8F8F8;
+  --color-gray-200: #E4E4E4;
+  --color-gray-300: #C5C5C5;
+  --color-gray-400: #949494;
+  --color-gray-500: #7F7F7F;
+  --color-gray-600: #6C6C6C;
+  --color-gray-700: #454545;
+  --color-gray-800: #232323;
+  --color-gray-900: #121212;
+  --color-gray-999: #000000;
+  --shadow: 1px 1px 5px 0 rgba(176, 176, 176, 0.5);
+  --radius-sm: 12px;
+  --radius-md: 14px;
+  --radius-lg: 50%; 
+
+  width: 100vw;
+  height: 100vh;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+
   body {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-text-size-adjust: none; /* Chrome, Safari, Opera */
   -ms-text-size-adjust: none; /* IE */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-  height: 100%; /* Prevent vertical bounce and set height to full view */
   margin: unset;
   padding: unset;
 }
+
+#root {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+*{
+  box-sizing: border-box !important;
+}
+
+#toast-root {
+    position: absolute;
+    top: 180px;
+    display: flex;
+  gap: 10px;
+  flex-direction: column;
+    align-items: center;
+    width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  z-index: 1;
+}
+
 `;
 
 export default GlobalStyles;
