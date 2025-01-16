@@ -1,11 +1,33 @@
 import { ReactNode } from "react";
-import { CardIndex, PlayerCard } from "./ProfileCardStyle";
+import PlayerCard from "./playerCard/playerCard";
+import * as S from "./ProfileCardStyle";
 
-export default function ProfileCard({ children }: { children: ReactNode }) {
+interface IMyProfileCard {
+  nickname?: string;
+  children: ReactNode;
+  roomId: number;
+  myReady: boolean;
+  handleMyReady: () => void;
+}
+
+export default function MyProfileCard({
+  nickname,
+  children,
+  roomId,
+  myReady,
+  handleMyReady,
+}: IMyProfileCard) {
   return (
     <div>
-      <CardIndex>나 or 상대플레이어</CardIndex>
-      <PlayerCard>{children}</PlayerCard>
+      <S.CardIndex>{children}</S.CardIndex>
+      <S.PlayerCardContainer>
+        <PlayerCard
+          myReady={myReady}
+          handleMyReady={handleMyReady}
+          roomId={roomId}
+          nickname={nickname}
+        />
+      </S.PlayerCardContainer>
     </div>
   );
 }

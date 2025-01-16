@@ -9,14 +9,12 @@ export const container = styled.div`
 `;
 
 export const leftContainer = styled.div`
-  padding-top: 44px;
-  margin-left: 63px;
   width: 390px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: yellow;
-  gap: 90px;
 `;
 
 export const centerContainer = styled.div`

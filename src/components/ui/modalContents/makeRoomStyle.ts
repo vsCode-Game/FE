@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const container = styled.div`
+export const container = styled.form`
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -34,11 +34,10 @@ export const warningContainer = styled.div`
   font-weight: 300;
   font-size: 13px;
   color: var(--color-gray-600);
+  line-height: 1.5rem;
 `;
 
-export const testBox = styled.div`
-  width: 460px;
-  height: 460px;
-  border-radius: 50px;
-  background-color: var(--color-gray-0);
+export const buttonContainer = styled.div`
+  display: flex;
+  gap: 30px;
 `;

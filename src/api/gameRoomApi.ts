@@ -34,6 +34,20 @@ export const getGameRoomsList = async () => {
   }
 };
 
+export const getGameRoomInfo = async (roomId: number) => {
+  try {
+    const response = await authInstance.get(`/gameRoom/${roomId}`);
+
+    return response.data;
+  } catch (error) {
+    const axiosError = error as AxiosError<unknown>;
+
+    if (axiosError.response) {
+      return axiosError.response.data;
+    }
+  }
+};
+
 export const createGameRoom = async ({
   roomName,
 }: {
@@ -43,6 +57,9 @@ export const createGameRoom = async ({
     const response = await authInstance.post<ICreateGameRoomResponse>(
       "gameRoom/create",
       { roomName },
+      {
+        headers: { Authorization: localStorage.getItem("accessToken") },
+      },
     );
 
     return response.data;
@@ -64,7 +81,7 @@ export const createGameRoom = async ({
 export const joinGameRoom = async (gameRoomId: number) => {
   try {
     const response = await authInstance.post(`/gameRoom/join/${gameRoomId}`);
-    console.log(response, "joinresponse확인");
+
     if (response.status === 200) {
       return response.data;
     }

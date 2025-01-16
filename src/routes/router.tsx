@@ -8,7 +8,6 @@ import CheckPassword from "@pages/mypage/checkPassword/CheckPassword";
 import UpdateMyPage from "@pages/mypage/updateMypage/UpdateMyPage";
 import GameRoom from "@pages/game/GameRoom";
 import Game from "@pages/game/Game";
-import TestPage from "../pages/testpage/Testpage";
 import Home from "@pages/home/Home";
 import Finish from "../pages/user/signUp/Finish";
 
@@ -58,10 +57,6 @@ export const router = createBrowserRouter([
       {
         path: "/user/mypage/updateMyPage",
         element: <UpdateMyPage />,
-      },
-      {
-        path: "/test",
-        element: <TestPage />,
       },
       {
         path: "/user/signup/finish",

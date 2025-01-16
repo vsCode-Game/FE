@@ -1,14 +1,55 @@
+import { Fragment } from "react/jsx-runtime";
 import Button from "../../../button/Button";
 import Profile from "../../../profile/Profile";
-import ProfileCard from "../ProfileCard";
+import { useSocketStore } from "../../../../../store/useSocketStore";
+import { useEffect } from "react";
 
-export default function PlayerCard() {
+interface IPlayerCard {
+  nickname?: string;
+  roomId: number;
+  handleMyReady: () => void;
+  myReady: boolean;
+}
+
+export default function PlayerCard({
+  nickname,
+  roomId,
+  myReady,
+  handleMyReady,
+}: IPlayerCard) {
+  const { socket } = useSocketStore();
+
+  const onClickReady = () => {
+    if (!socket) {
+      return;
+    }
+    handleMyReady();
+  };
+
+  useEffect(() => {
+    if (!socket) {
+      return;
+    }
+    if (myReady) {
+      console.log(myReady, "마이래디");
+      socket?.emit("setReady", { roomId });
+    } else {
+      socket?.emit("unReady", { roomId });
+    }
+  }, [myReady]);
+
   return (
-    <ProfileCard>
-      <Profile nickname="플레이어" rank="78위" />
-      <Button type="button" bgcolor="blue" textcolor="black" size="sm">
-        Ready
+    <Fragment>
+      <Profile nickname={nickname} />
+      <Button
+        type="button"
+        bgcolor={!myReady ? "blue" : "red"}
+        textcolor="black"
+        size="sm"
+        onClick={onClickReady}
+      >
+        {myReady ? "UnReady" : "Ready"}
       </Button>
-    </ProfileCard>
+    </Fragment>
   );
 }
