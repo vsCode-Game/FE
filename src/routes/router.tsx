@@ -9,7 +9,7 @@ import UpdateMyPage from "@pages/mypage/updateMypage/UpdateMyPage";
 import GameRoom from "@pages/game/GameRoom";
 import Game from "@pages/game/Game";
 import Home from "@pages/home/Home";
-import Finish from "@pages/user/signUp/SignUpFinish";
+import SignUpFinish from "@pages/user/signUp/SignUpFinish";
 import Error from "@pages/error/Error";
 
 export const router = createBrowserRouter([
@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/user/signup/finish",
-        element: <Finish />,
+        element: <SignUpFinish />,
       },
       {
         path: "/rank",
