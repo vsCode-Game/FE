@@ -1,16 +1,11 @@
 import logo from "@assets/images/logo.svg";
 import Button from "@components/ui/button/Button.tsx";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { StyledHeader, NavList, Logo } from "./HeaderStyle.ts";
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 임시 login 상태
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setIsLoggedIn(false);
-  }, []);
+  const accessToken = localStorage.getItem("accessToken");
 
   const onClickMove = () => {
     navigate("./user/signup");
@@ -30,7 +25,7 @@ export default function Header() {
           <li>
             <NavLink to="/rank">랭킹</NavLink>
           </li>
-          {isLoggedIn ? (
+          {accessToken ? (
             <>
               <li>
                 <NavLink to="/user/mypage">마이페이지</NavLink>
