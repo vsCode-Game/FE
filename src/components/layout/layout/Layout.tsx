@@ -17,8 +17,6 @@ export default function Layout() {
   const isGameRoom = pathname.includes(GAME_ROOM);
   const isHiddenHeaderFooter = pathname.includes(HIDDEN_HEADER_FOOTER);
 
-  console.log(isHiddenHeaderFooter);
-
   return (
     <>
       <Wrapper>
