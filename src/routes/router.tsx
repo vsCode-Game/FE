@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "@pages/user/login/Login";
-import Ranking from "@pages/rank/Ranking";
+import RangkingPage from "@pages/rank/RankingPage";
 import SignUp from "@pages/user/signUp/SignUp";
 import Layout from "@components/layout/layout/Layout";
 import GameRoomList from "@pages/game/gameRoomList";
@@ -10,6 +10,7 @@ import GameRoom from "@pages/game/GameRoom";
 import Game from "@pages/game/Game";
 import TestPage from "../pages/testpage/Testpage";
 import Home from "@pages/home/Home";
+import Finish from "../pages/user/signUp/Finish";
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/rank",
-        element: <Ranking />,
+        element: <RangkingPage />,
       },
       {
         path: "/game",
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
       {
         path: "/test",
         element: <TestPage />,
+      },
+      {
+        path: "/user/signup/finish",
+        element: <Finish />,
       },
     ],
   },
