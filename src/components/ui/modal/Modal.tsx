@@ -6,6 +6,8 @@ import { Inside, ModalFrame, Overlay } from "./modalStyle";
 import BigDeck from "../bigDeck/BigDeck";
 import TurnWaiting from "../modalContents/TurnWaiting";
 import GameWaiting from "../modalContents/GameWaiting";
+import { useEffect } from "react";
+import { useModal } from "@hooks/useModal";
 
 const modalComponents: Record<string, React.ReactNode> = {
   firstSelect: <FirstSelect />,
@@ -17,8 +19,23 @@ const modalComponents: Record<string, React.ReactNode> = {
 
 export default function Modal() {
   const { showModal, currentModal, modalColor } = useModalStore();
+  const { closeModal } = useModal();
 
   if (!showModal) return null;
+
+  useEffect(() => {
+    const onKeydownEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("keydown", onKeydownEscape);
+
+    return () => {
+      document.removeEventListener("keydown", onKeydownEscape);
+    };
+  }, [closeModal]);
 
   return (
     <ModalPortal>
