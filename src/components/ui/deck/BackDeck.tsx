@@ -1,12 +1,39 @@
-import iconArrow from "@assets/images/icon_arrow_right.svg";
+import backDeck from "@assets/images/icon_backDeck.svg";
 import * as S from "./backDeckStyle";
+import { useModal } from "../../../hooks/useModal";
+import { useCradIndexStore } from "../../../store/useGuessNumberStore";
 
-export default function BackDeck({ value, color }: IWhiteDeckProps) {
-  const number = value;
-  console.log(number);
+interface IBackDeckProps {
+  isFlipped: boolean;
+  color: string;
+  cardIndex: number;
+  myHighlight?: boolean;
+  disabled: boolean;
+}
+
+export default function BackDeck({
+  // isFlipped,
+
+  color,
+  disabled,
+  myHighlight,
+  cardIndex,
+}: IBackDeckProps) {
+  const { openModal } = useModal();
+  const { setCardIndex } = useCradIndexStore();
+  console.log(cardIndex, "카드인덱스 확인");
+  const onClicBackDeck = () => {
+    setCardIndex(cardIndex);
+    openModal("guessNumber", "blue");
+  };
   return (
-    <S.cardDeck color={color}>
-      <S.img src={iconArrow} alt="arrow" color={color} />
+    <S.cardDeck
+      color={color}
+      myHighlight={myHighlight}
+      disabled={disabled}
+      onClick={onClicBackDeck}
+    >
+      <S.img src={backDeck} alt="arrow" color={color} />
     </S.cardDeck>
   );
 }

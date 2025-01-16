@@ -3,10 +3,14 @@ import FirstSelect from "../modalContents/FirstSelect";
 import MakeRoom from "../modalContents/MakeRoom";
 import { useModalStore } from "../../../store/useModalStore";
 import { Inside, ModalFrame, Overlay } from "./modalStyle";
+import BigDeck from "../bigDeck/BigDeck";
+import GuessNumber from "../selectionNumber/GuessNumber";
 
 const modalComponents: Record<string, React.ReactNode> = {
   firstSelect: <FirstSelect />,
   makeRoom: <MakeRoom />,
+  myTurn: <BigDeck />,
+  guessNumber: <GuessNumber />,
 };
 
 export default function Modal() {
