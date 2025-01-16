@@ -18,6 +18,10 @@ export default function Home() {
     navigate("/user/signup");
   };
 
+  const onClickStart = () => {
+    navigate("/game");
+  };
+
   return (
     <>
       <CircleBackground />
@@ -58,6 +62,7 @@ export default function Home() {
             width="500px"
             textcolor="black"
             bgcolor="green"
+            onClick={onClickStart}
           >
             Let's Get Started !
           </StartButton>
