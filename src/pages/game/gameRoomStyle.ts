@@ -37,9 +37,11 @@ export const rightContainer = styled.div`
 `;
 
 export const myDeckBox = styled.div`
+  display: flex;
+  justify-content: end;
   width: 100%;
   height: 90px;
-  gap: 40px;
+  gap: 11px;
   background-color: purple;
 `;
 
