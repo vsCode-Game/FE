@@ -351,7 +351,7 @@ export default function GameRoom() {
         <ChattingBox />
       </S.leftContainer>
       <S.centerContainer>
-        <S.guideBox></S.guideBox>
+        <S.otherPlayerDeck></S.otherPlayerDeck>
         <S.otherPlayerDeck>
           {opponentColor?.map((deck, index) => (
             <BackDeck

@@ -1,7 +1,6 @@
 import iconExit from "@assets/images/icon_close.svg";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Flex, StyledHeader, TextButton } from "./GameRoomHeaderStyle";
-
 import { useSocketStore } from "../../../store/useSocketStore";
 
 export default function GameRoomHeader() {
@@ -20,12 +19,10 @@ export default function GameRoomHeader() {
   return (
     <>
       <StyledHeader>
-        <NavLink to="/">
-          <Flex onClick={() => onClickOut(roomId)}>
-            <img src={iconExit} alt="게임방 나가기" />
-            <TextButton>나가기</TextButton>
-          </Flex>
-        </NavLink>
+        <Flex onClick={() => onClickOut(roomId)}>
+          <img src={iconExit} alt="게임방 나가기" />
+          <TextButton>나가기</TextButton>
+        </Flex>
       </StyledHeader>
     </>
   );
