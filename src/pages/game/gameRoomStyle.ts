@@ -14,26 +14,22 @@ export const leftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: yellow;
+  gap: 30px;
 `;
 
 export const centerContainer = styled.div`
   height: 100%;
   width: 100%;
-  background-color: green;
+  flex-grow: 1;
   position: relative;
 `;
 
 export const rightContainer = styled.div`
-  margin-right: 77px;
-  padding-bottom: 44px;
   width: 390px;
-  height: 100%;
   display: flex;
   gap: 40px;
   flex-direction: column;
-  justify-content: end;
-  background-color: blue;
+  justify-content: space-between;
 `;
 
 export const myDeckBox = styled.div`
@@ -41,16 +37,8 @@ export const myDeckBox = styled.div`
   justify-content: end;
   width: 100%;
   height: 90px;
+  flex-grow: 1;
   gap: 11px;
-  background-color: purple;
-`;
-
-export const guideBox = styled.div`
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: center;
-  background-color: red;
 `;
 
 export const otherPlayerDeck = styled.div`
@@ -59,12 +47,10 @@ export const otherPlayerDeck = styled.div`
   height: 90px;
   display: flex;
   gap: 12px;
-  background-color: aqua;
 `;
 
 export const selectNumberBox = styled.div`
   margin-top: 40px;
   width: 100%;
   height: 229px;
-  background-color: black;
 `;

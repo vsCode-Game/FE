@@ -17,9 +17,15 @@ export default function GameRoomList() {
   const { openModal } = useModal();
   const { data: gameRooms } = useGetGameRoomList();
   console.log("gameRooms✅", gameRooms);
+  const accessToken = localStorage.getItem("accessToken");
+  console.log(accessToken);
 
   const onClickModalOpen = () => {
-    openModal("makeRoom", "white");
+    if (!accessToken || accessToken === null) {
+      openModal("GamrRoomJoinConfirm", "white");
+    } else {
+      openModal("makeRoom", "white");
+    }
   };
 
   return (
