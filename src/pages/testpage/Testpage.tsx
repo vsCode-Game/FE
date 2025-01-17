@@ -1,9 +1,11 @@
-import Rangking from "../../components/ui/ranking/Ranking";
+import { useModal } from "../../hooks/useModal";
 
 export default function TestPage() {
+  const { openModal } = useModal();
+  const onClickModal = () => {
+    openModal("selectTurn", "blue");
+  };
   return (
-    <div>
-      <Rangking />
-    </div>
+    <div onClick={onClickModal}>ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ</div>
   );
 }

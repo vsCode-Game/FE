@@ -28,7 +28,7 @@ export const ModalFrame = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   inset: 0;
 `;

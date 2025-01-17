@@ -24,6 +24,4 @@ export const StyledFooter = styled.footer<FooterProps>`
   justify-content: center;
   align-items: center;
   color: var(--color-gray-600);
-  position: fixed;
-  bottom: 0;
 `;

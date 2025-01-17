@@ -14,6 +14,10 @@ export const buttonContainer = styled.div`
   justify-content: end;
 `;
 
+export const buttonText = styled.span`
+  margin-left: 10px;
+`;
+
 export const gameroomListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 500px);
