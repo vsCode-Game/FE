@@ -141,7 +141,14 @@ export default function GameRoom() {
   const [opponentIndex, setOpponentIndex] = useState<number>();
   const [message, setMessage] = useState<string>();
 
-  console.log("타입에러방지", arrangeCard, fieldDeck, opponent, newlyDrawn);
+  console.log(
+    "타입에러방지",
+    arrangeCard,
+    fieldDeck,
+    opponent,
+    newlyDrawn,
+    message,
+  );
   const { openModal } = useModal();
 
   useEffect(() => {
