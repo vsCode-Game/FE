@@ -1,14 +1,9 @@
 import ModalPortal from "./ModalPortal";
 import { useModalStore } from "../../../store/useModalStore";
 import { Inside, ModalFrame, Overlay } from "./modalStyle";
-import GuessNumber from "../selectionNumber/GuessNumber";
 import { useEffect } from "react";
 import { useModal } from "@hooks/useModal";
 import { modalComponents } from "./modalComponent";
-import TurnWaiting from "../modalContents/TurnWaiting";
-import GameWaiting from "../modalContents/GameWaiting";
-import SelectTurn from "../modalContents/SelectTurn";
-
 
 export default function Modal() {
   const { showModal, currentModal, modalColor } = useModalStore();
