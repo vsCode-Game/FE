@@ -139,7 +139,9 @@ export default function GameRoom() {
   const [opponent, setOpponentCard] = useState<IOpponentColor[]>();
   const [newlyDrawn, setNewlyDrawn] = useState<IFinalHand>();
   const [opponentIndex, setOpponentIndex] = useState<number>();
+  const [message, setMessage] = useState<string>();
 
+  console.log("타입에러방지", arrangeCard, fieldDeck, opponent, newlyDrawn);
   const { openModal } = useModal();
 
   useEffect(() => {
@@ -216,6 +218,7 @@ export default function GameRoom() {
     const handleHandDeck = async (data: IHandDeck) => {
       console.log(`${JSON.stringify(data)}`);
       const { finalHand, message } = data;
+      setMessage(message);
       setFinalHand(finalHand);
     };
 
@@ -228,6 +231,7 @@ export default function GameRoom() {
       setPossiblePositions(possiblePositions);
       setJoker(jokerCard);
       setArrangeCard(arrangeCard);
+      setMessage(message);
     };
 
     const handleOpponentColor = async (data: IOpponentColorArrayRevealed) => {
@@ -246,11 +250,13 @@ export default function GameRoom() {
         whiteCount: fieldWhite,
       });
       setTurnId(turnUserId);
+      setMessage(message);
     };
 
     const handleDrawCard = async (data: IDrawCard) => {
       console.log(`${JSON.stringify(data)}`);
       const { finalHand, message, newPosition, newlyDrawn, arrangeCard } = data;
+      setMessage(message);
       setFinalHand(finalHand);
       setNewlyDrawn(newlyDrawn);
       setArrangeCard(arrangeCard);
@@ -259,7 +265,8 @@ export default function GameRoom() {
 
     const handleOpponentCard = async (data: IOponnentCard) => {
       console.log(`${JSON.stringify(data)}`);
-      const { opponentCard, message, color, index, userId } = data;
+      const { opponentCard, message, index } = data;
+      setMessage(message);
       setOpponentCard(opponentCard);
       setOpponentColor(opponentCard);
       setOpponentIndex(index);
