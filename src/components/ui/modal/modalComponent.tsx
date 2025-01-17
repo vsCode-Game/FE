@@ -18,4 +18,7 @@ export const modalComponents: Record<string, React.ReactNode> = {
   GameRoomJoinConfirm: (
     <Alert message="개임 방 만들기는 로그인 후 가능합니다." />
   ),
+  guessNumber: <GuessNumber />,
+  myTurn: <BigDeck />,
+  
 };
