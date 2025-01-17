@@ -151,12 +151,13 @@ export default function GameRoom() {
   const [wrongIndex, setWrongIndex] = useState<number>();
 
   console.log(
-    "타입에러방지",
+    "타입에러방지용 콘솔",
     arrangeCard,
     fieldDeck,
     opponent,
     newlyDrawn,
     message,
+    wrongIndex,
   );
   const { openModal } = useModal();
 
