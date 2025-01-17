@@ -1,5 +1,10 @@
 import * as S from "./JokerDeckStyle";
 
-export default function JokerDeck({ pos, onClick }) {
+interface IJockerDeck {
+  pos: number;
+  onClick: (pos: number) => void;
+}
+
+export default function JokerDeck({ pos, onClick }: IJockerDeck) {
   return <S.JockerDeck onClick={() => onClick(pos)}>선택</S.JockerDeck>;
 }

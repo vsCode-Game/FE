@@ -1,7 +1,7 @@
 import backDeck from "@assets/images/icon_backDeck.svg";
 import * as S from "./backDeckStyle";
 import { useModal } from "../../../hooks/useModal";
-import { useCradIndexStore } from "../../../store/useGuessNumberStore";
+import { useCardIndexStore } from "../../../store/useGuessNumberStore";
 
 interface IBackDeckProps {
   isFlipped: boolean;
@@ -20,7 +20,7 @@ export default function BackDeck({
   cardIndex,
 }: IBackDeckProps) {
   const { openModal } = useModal();
-  const { setCardIndex } = useCradIndexStore();
+  const { setCardIndex } = useCardIndexStore();
   console.log(cardIndex, "카드인덱스 확인");
   const onClicBackDeck = () => {
     setCardIndex(cardIndex);

@@ -74,6 +74,46 @@ interface IFieldDeck {
   whiteCount: number;
 }
 
+interface IHandDeck {
+  finalHand: IFinalHand[];
+  message: string;
+}
+
+interface IArrangeCard {
+  arrangeCard: boolean;
+  finalHand: IFinalHand[];
+  jokerCard: IFinalHand;
+  message: string;
+  possiblePositions: number[];
+}
+
+interface IOpponentColorArrayRevealed {
+  message: string;
+  opponentColorArray: IOpponentColor[];
+}
+
+interface INowTurn {
+  fieldBlack: number;
+  fieldWhite: number;
+  message: string;
+  turnUserId: number;
+}
+
+interface IDrawCard {
+  arrangeCard: boolean;
+  finalHand: IFinalHand[];
+  message: string;
+  newPosition: number;
+  newlyDrawn: IFinalHand;
+}
+
+interface IOponnentCard {
+  color: string;
+  index: number;
+  message: string;
+  opponentCard: IOpponentColor[];
+  userId: number;
+}
 export default function GameRoom() {
   const { socket, setSocket } = useSocketStore();
   const params = useParams();
@@ -94,11 +134,11 @@ export default function GameRoom() {
   );
   const [arrangeCard, setArrangeCard] = useState(false);
   const [fieldDeck, setFieldDeck] = useState<IFieldDeck>();
-  const [turnId, setTurnId] = useState();
-  const [newPosition, setNewPosition] = useState();
-  const [opponent, setOpponentCard] = useState();
-  const [newlyDrawn, setNewlyDrawn] = useState();
-  const [opponentIndex, setOpponentIndex] = useState();
+  const [turnId, setTurnId] = useState<number>();
+  const [newPosition, setNewPosition] = useState<number>();
+  const [opponent, setOpponentCard] = useState<IOpponentColor[]>();
+  const [newlyDrawn, setNewlyDrawn] = useState<IFinalHand>();
+  const [opponentIndex, setOpponentIndex] = useState<number>();
 
   const { openModal } = useModal();
 
@@ -173,16 +213,16 @@ export default function GameRoom() {
       openModal("firstSelect", "white");
     };
 
-    const handleHandDeck = async (data) => {
+    const handleHandDeck = async (data: IHandDeck) => {
       console.log(`${JSON.stringify(data)}`);
-      const { arrangeCard, finalHand } = data;
+      const { finalHand, message } = data;
       setFinalHand(finalHand);
-      setArrangeCard(arrangeCard);
     };
 
-    const handleArrangeCard = async (data) => {
+    const handleArrangeCard = async (data: IArrangeCard) => {
       console.log(`${JSON.stringify(data)}`);
-      const { finalHand, possiblePositions, jokerCard, arrangeCard } = data;
+      const { finalHand, possiblePositions, jokerCard, arrangeCard, message } =
+        data;
       console.log("핸들어렌지 카드에서 데이터보기", data);
       setFinalHand(finalHand);
       setPossiblePositions(possiblePositions);
@@ -190,7 +230,7 @@ export default function GameRoom() {
       setArrangeCard(arrangeCard);
     };
 
-    const handleOpponentColor = async (data) => {
+    const handleOpponentColor = async (data: IOpponentColorArrayRevealed) => {
       console.log(`${JSON.stringify(data)}`);
       console.log("핸들 오포넌트칼라 데이터", data);
       const { opponentColorArray } = data;
@@ -198,7 +238,7 @@ export default function GameRoom() {
       setOpponentColor(opponentColorArray);
     };
 
-    const handleNowTurn = async (data) => {
+    const handleNowTurn = async (data: INowTurn) => {
       console.log(`${JSON.stringify(data)}`);
       const { fieldBlack, fieldWhite, message, turnUserId } = data;
       setFieldDeck({
@@ -208,7 +248,7 @@ export default function GameRoom() {
       setTurnId(turnUserId);
     };
 
-    const handleDrawCard = async (data) => {
+    const handleDrawCard = async (data: IDrawCard) => {
       console.log(`${JSON.stringify(data)}`);
       const { finalHand, message, newPosition, newlyDrawn, arrangeCard } = data;
       setFinalHand(finalHand);
@@ -217,9 +257,9 @@ export default function GameRoom() {
       setNewPosition(newPosition);
     };
 
-    const handleOpponentCard = async (data) => {
+    const handleOpponentCard = async (data: IOponnentCard) => {
       console.log(`${JSON.stringify(data)}`);
-      const { opponentCard, message, index } = data;
+      const { opponentCard, message, color, index, userId } = data;
       setOpponentCard(opponentCard);
       setOpponentColor(opponentCard);
       setOpponentIndex(index);
