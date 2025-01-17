@@ -1,3 +1,4 @@
+import React from "react";
 import * as S from "./guessNumberStyle";
 import NumberButton from "./NumberButton";
 
@@ -10,7 +11,9 @@ export default function GuessNumber() {
       <S.numberContainer>
         <S.leftContainer>
           {numbers.map((num) => (
-            <NumberButton value={num} />
+            <React.Fragment key={num}>
+              <NumberButton value={num} />
+            </React.Fragment>
           ))}
         </S.leftContainer>
         <S.rightContaider>
