@@ -1,7 +1,6 @@
 import iconExit from "@assets/images/icon_close.svg";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Flex, StyledHeader, TextButton } from "./GameRoomHeaderStyle";
-
 import { useSocketStore } from "../../../store/useSocketStore";
 
 export default function GameRoomHeader() {
