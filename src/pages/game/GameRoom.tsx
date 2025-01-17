@@ -114,6 +114,14 @@ interface IOponnentCard {
   opponentCard: IOpponentColor[];
   userId: number;
 }
+
+interface IWrongGuess {
+  cardIndex: number;
+  cardNumber: number;
+  finalHand: IFinalHand[];
+  message: string;
+  userId: number;
+}
 export default function GameRoom() {
   const { socket, setSocket } = useSocketStore();
   const params = useParams();
@@ -140,14 +148,16 @@ export default function GameRoom() {
   const [newlyDrawn, setNewlyDrawn] = useState<IFinalHand>();
   const [opponentIndex, setOpponentIndex] = useState<number>();
   const [message, setMessage] = useState<string>();
+  const [wrongIndex, setWrongIndex] = useState<number>();
 
   console.log(
-    "타입에러방지",
+    "타입에러방지용 콘솔",
     arrangeCard,
     fieldDeck,
     opponent,
     newlyDrawn,
     message,
+    wrongIndex,
   );
   const { openModal } = useModal();
 
@@ -279,6 +289,13 @@ export default function GameRoom() {
       setOpponentIndex(index);
     };
 
+    const handleWrongGuess = async (data: IWrongGuess) => {
+      const { cardIndex, finalHand, message } = data;
+      setMessage(message);
+      setFinalHand(finalHand);
+      setWrongIndex(cardIndex);
+    };
+
     socket.on("join", handleJoin);
     socket.on("leave", handleLeave);
     socket.on("ready", handleReady);
@@ -289,6 +306,7 @@ export default function GameRoom() {
     socket.on("nowTurn", handleNowTurn);
     socket.on("drawCard", handleDrawCard);
     socket.on("opponentCard", handleOpponentCard);
+    socket.on("wrongGuess", handleWrongGuess);
 
     return () => {
       socket.disconnect();
