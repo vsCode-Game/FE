@@ -5,6 +5,7 @@ import { useCardIndexStore } from "../../../store/useGuessNumberStore";
 
 interface IBackDeckProps {
   isFlipped: boolean;
+  number?: number;
   color: string;
   cardIndex: number;
   myHighlight?: boolean;
@@ -12,8 +13,8 @@ interface IBackDeckProps {
 }
 
 export default function BackDeck({
-  // isFlipped,
-
+  isFlipped,
+  number,
   color,
   disabled,
   myHighlight,
@@ -33,7 +34,7 @@ export default function BackDeck({
       disabled={disabled}
       onClick={onClicBackDeck}
     >
-      <S.img src={backDeck} alt="arrow" color={color} />
+      {isFlipped ? number : <S.img src={backDeck} alt="arrow" color={color} />}
     </S.cardDeck>
   );
 }

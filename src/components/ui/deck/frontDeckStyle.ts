@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const cardDeck = styled.div<{ color: string; myHighlight?: boolean }>`
+export const cardDeck = styled.div<{
+  color: string;
+  myHighlight?: boolean;
+  isFlipped: boolean;
+}>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,9 +12,11 @@ export const cardDeck = styled.div<{ color: string; myHighlight?: boolean }>`
   width: 44px;
   height: 90px;
   border-radius: 8px;
-  border: ${({ myHighlight, color }) =>
-    myHighlight
-      ? "2px solid red" // highlight가 true일 때 빨간색 테두리
+  border: ${({ myHighlight, color, isFlipped }) =>
+    isFlipped
+      ? "1px solid red"
+      : myHighlight
+      ? "2px solid yellow" // highlight가 true일 때 노란색 테두리
       : color === "black"
       ? "1px solid var(--color-gray-0)"
       : "1px solid var(--color-gray-999)"};
