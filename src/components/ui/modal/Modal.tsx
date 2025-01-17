@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useModal } from "@hooks/useModal";
 import TurnWaiting from "../modalContents/TurnWaiting";
 import GameWaiting from "../modalContents/GameWaiting";
+import SelectTurn from "../modalContents/SelectTurn";
 
 const modalComponents: Record<string, React.ReactNode> = {
   firstSelect: <FirstSelect />,
@@ -18,6 +19,7 @@ const modalComponents: Record<string, React.ReactNode> = {
   selectWhiteBlack: <BigDeck />,
   turnWaiting: <TurnWaiting />,
   gameWaiting: <GameWaiting />,
+  selectTurn: <SelectTurn />,
 };
 
 export default function Modal() {
