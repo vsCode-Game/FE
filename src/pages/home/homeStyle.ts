@@ -10,12 +10,14 @@ const basicStyle = css`
 
 export const HomeContainer = styled.div`
   width: 100%;
+  min-width: 600px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  flex-shrink: 0;
 `;
 
 export const NavWrapper = styled.nav`
