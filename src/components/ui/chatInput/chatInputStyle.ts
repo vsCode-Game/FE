@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const chatLog = styled.div`
+  flex-grow: 1;
+  font-size: 14px;
+  max-height: 290px;
+  overflow-y: scroll;
+`;
+
 export const chatInput = styled.input`
   width: 100%;
   flex-grow: 1;
@@ -24,4 +31,5 @@ export const chatInputBox = styled.div`
   width: 100%;
   display: flex;
   gap: 10px;
+  height: 100%;
 `;

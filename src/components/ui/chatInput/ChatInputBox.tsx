@@ -1,10 +1,21 @@
 import Button from "../button/Button";
 import * as S from "./chatInputStyle";
-// import { IChattingProps } from "../card/chatting/Chatting";
-// import { useEffect, useState } from "react";
+import { useSocketStore } from "@store/useSocketStore";
+import { useEffect } from "react";
 // import { useParams } from "react-router-dom";
 
 export default function ChatInputBox() {
+  const { socket } = useSocketStore();
+
+  useEffect(() => {
+    if (!socket) {
+      console.error("Socket is not connected.");
+      return;
+    }
+  }, []);
+
+  console.log("🚀 Socket:", socket);
+
   //   const [message, setMessage] = useState("");
   //   const params = useParams();
   //   const roomId = Number(params.id);
@@ -26,23 +37,26 @@ export default function ChatInputBox() {
   //   };
 
   return (
-    <S.chatInputBox>
-      <S.chatInput
-        type="text"
-        placeholder="상대방과 채팅을 나눌 수 있습니다."
-        // value={message}
-      ></S.chatInput>
-      <S.buttonBox>
-        <Button
-          size="xs"
-          bgcolor="green"
-          textcolor="black"
-          type="button"
-          //   onClick={onClickSendMessage}
-        >
-          전송
-        </Button>
-      </S.buttonBox>
-    </S.chatInputBox>
+    <>
+      <S.chatLog></S.chatLog>
+      <S.chatInputBox>
+        <S.chatInput
+          type="text"
+          placeholder="상대방과 채팅을 나눌 수 있습니다."
+          // value={message}
+        ></S.chatInput>
+        <S.buttonBox>
+          <Button
+            size="xs"
+            bgcolor="green"
+            textcolor="black"
+            type="button"
+            //   onClick={onClickSendMessage}
+          >
+            전송
+          </Button>
+        </S.buttonBox>
+      </S.chatInputBox>
+    </>
   );
 }
