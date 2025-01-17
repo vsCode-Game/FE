@@ -1,6 +1,5 @@
 import { IGameRoom } from "../../../../api/gameRoomApi";
 import { useJoinGameRoomMutation } from "../../../../hooks/useMutation";
-import { useRoomIdStore } from "../../../../store/useRoomIdStore";
 import Badge from "../../badge/Badge";
 import Button from "../../button/Button";
 import * as S from "./GameRoomCardStyle";
