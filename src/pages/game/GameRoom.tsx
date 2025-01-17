@@ -66,6 +66,7 @@ interface IFinalHand {
 
 interface IOpponentColor {
   color: string;
+  num?: number;
   isFlipped: boolean;
 }
 
@@ -101,7 +102,8 @@ interface INowTurn {
 
 interface IDrawCard {
   arrangeCard: boolean;
-  finalHand: IFinalHand[];
+  finalHand?: IFinalHand[];
+  currentHand?: IFinalHand[];
   message: string;
   newPosition: number;
   newlyDrawn: IFinalHand;
@@ -252,10 +254,7 @@ export default function GameRoom() {
     };
 
     const handleOpponentColor = async (data: IOpponentColorArrayRevealed) => {
-      console.log(`${JSON.stringify(data)}`);
-      console.log("핸들 오포넌트칼라 데이터", data);
       const { opponentColorArray } = data;
-      console.log(opponentColorArray, "상대 칼라 확인하기");
       setOpponentColor(opponentColorArray);
     };
 
@@ -272,12 +271,28 @@ export default function GameRoom() {
 
     const handleDrawCard = async (data: IDrawCard) => {
       console.log(`${JSON.stringify(data)}`);
-      const { finalHand, message, newPosition, newlyDrawn, arrangeCard } = data;
-      setMessage(message);
-      setFinalHand(finalHand);
-      setNewlyDrawn(newlyDrawn);
-      setArrangeCard(arrangeCard);
-      setNewPosition(newPosition);
+      const {
+        finalHand,
+        currentHand,
+        message,
+        newPosition,
+        newlyDrawn,
+        arrangeCard,
+      } = data;
+      if (arrangeCard) {
+        setFinalHand(currentHand!);
+        setPossiblePositions(possiblePositions);
+        setJoker(newlyDrawn);
+        setArrangeCard(arrangeCard);
+        setMessage(message);
+      }
+      if (!arrangeCard) {
+        setMessage(message);
+        setFinalHand(finalHand!);
+        setNewlyDrawn(newlyDrawn);
+        setArrangeCard(arrangeCard);
+        setNewPosition(newPosition);
+      }
     };
 
     const handleOpponentCard = async (data: IOponnentCard) => {
@@ -299,14 +314,40 @@ export default function GameRoom() {
     socket.on("join", handleJoin);
     socket.on("leave", handleLeave);
     socket.on("ready", handleReady);
+    socket.on("message", (data) => {
+      console.log(data);
+    });
     socket.on("gameStart", handleGameStart);
     socket.on("handDeck", handleHandDeck);
     socket.on("arrangeCard", handleArrangeCard);
     socket.on("opponentColorArrayRevealed", handleOpponentColor);
     socket.on("nowTurn", handleNowTurn);
     socket.on("drawCard", handleDrawCard);
+    socket.on("newlyDrawnArrangementDone", handleDrawCard);
     socket.on("opponentCard", handleOpponentCard);
+    socket.on("correctGuess", (data) => {
+      const { opponentFinalHand } = data;
+      setOpponentColor(opponentFinalHand);
+    });
     socket.on("wrongGuess", handleWrongGuess);
+    socket.on("yourCardFlipped", (data) => {
+      const { finalHand } = data;
+      setFinalHand(finalHand);
+    });
+    socket.on("cardFlipped", (data) => {
+      const { opponentFinalHand } = data;
+      setOpponentColor(opponentFinalHand);
+    });
+    socket.on("gameOver", (data) => {
+      console.log(data);
+    });
+    socket.on("opponentColorArrayRevealed", (data) => {
+      console.log(data);
+    });
+
+    socket.on("error", (data) => {
+      console.log(data);
+    });
 
     return () => {
       socket.disconnect();
@@ -359,6 +400,7 @@ export default function GameRoom() {
               isFlipped={deck.isFlipped}
               color={deck.color}
               cardIndex={index}
+              number={deck.num}
               myHighlight={index === opponentIndex}
               disabled={userMyId !== turnId}
             />
@@ -378,7 +420,7 @@ export default function GameRoom() {
                 value={deck.num}
                 color={deck.color}
                 myHighlight={index === newPosition}
-                // opponentHighlight ={index ===}
+                isFlipped={deck.isFlipped}
               />
               {index === finalHand.length - 1 &&
                 possiblePositions.includes(finalHand.length) && (
