@@ -33,14 +33,12 @@ export const rightContainer = styled.div`
 `;
 
 export const myDeckBox = styled.div`
+  display: flex;
+  justify-content: end;
   width: 100%;
   height: 90px;
   flex-grow: 1;
-  display: flex;
-  justify-content: end;
-  align-items: flex-end;
-  flex-wrap: wrap;
-  color: white;
+  gap: 11px;
 `;
 
 export const otherPlayerDeck = styled.div`

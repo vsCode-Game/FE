@@ -11,6 +11,7 @@ import Game from "@pages/game/Game";
 import Home from "@pages/home/Home";
 import SignUpFinish from "@pages/user/signUp/SignUpFinish";
 import Error from "@pages/error/Error";
+import TestPage from "../pages/testpage/Testpage";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "/user/mypage/updateMyPage",
         element: <UpdateMyPage />,
+      },
+      {
+        path: "/test",
+        element: <TestPage />,
       },
     ],
   },

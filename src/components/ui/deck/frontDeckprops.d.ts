@@ -1,17 +1,5 @@
-interface IWhiteDeckProps {
-  value?:
-    | "1"
-    | "2"
-    | "3"
-    | "4"
-    | "5"
-    | "6"
-    | " 7"
-    | "8"
-    | "9"
-    | "10"
-    | "11"
-    | "-";
-
-  color: "white" | "black";
+interface IFrontDeckProps {
+  value: number;
+  color: string;
+  myHighlight?: boolean;
 }
