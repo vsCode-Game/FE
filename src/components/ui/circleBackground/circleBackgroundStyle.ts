@@ -47,7 +47,10 @@ const MovingYellow = keyframes`
     transform: translate(260%, 320%);
   }
 `;
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  max-height: 600px;
+  overflow: hidden;
+`;
 
 export const CircleGreen = styled.div`
   position: absolute;

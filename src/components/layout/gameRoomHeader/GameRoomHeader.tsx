@@ -20,12 +20,10 @@ export default function GameRoomHeader() {
   return (
     <>
       <StyledHeader>
-        <NavLink to="/">
-          <Flex onClick={() => onClickOut(roomId)}>
-            <img src={iconExit} alt="게임방 나가기" />
-            <TextButton>나가기</TextButton>
-          </Flex>
-        </NavLink>
+        <Flex onClick={() => onClickOut(roomId)}>
+          <img src={iconExit} alt="게임방 나가기" />
+          <TextButton>나가기</TextButton>
+        </Flex>
       </StyledHeader>
     </>
   );
