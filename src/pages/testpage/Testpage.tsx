@@ -1,18 +1,11 @@
-import Finish from "../../components/ui/finish/Finish";
-// import RankingList from "../../components/ui/ranking/RankingList";
-
-// export default function TestPage() {
-//   return (
-//     <div>
-//       <RankingList nickname={undefined} index={undefined} />
-//     </div>
-//   );
-// }
+import { useModal } from "../../hooks/useModal";
 
 export default function TestPage() {
+  const { openModal } = useModal();
+  const onClickModal = () => {
+    openModal("guessNumber", "blue");
+  };
   return (
-    <div>
-      <Finish />
-    </div>
+    <div onClick={onClickModal}>ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ</div>
   );
 }
