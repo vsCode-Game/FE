@@ -27,7 +27,7 @@ export default function RangkingPage() {
         {/* {data?.ranking.map((user, index) => (
         <RankingList nickname={user.userNickname} index={index} />
       ))} */}
-        <RankingList></RankingList>
+        <RankingList nickname="" index={0}></RankingList>
       </FullBox>
     </Wrapper>
   );
