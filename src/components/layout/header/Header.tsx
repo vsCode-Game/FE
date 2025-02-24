@@ -17,7 +17,7 @@ export default function Header() {
     <>
       <StyledHeader>
         <Logo>
-          <NavLink to="/game">
+          <NavLink to="/home">
             <img src={logo} />
           </NavLink>
         </Logo>
