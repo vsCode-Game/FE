@@ -16,9 +16,7 @@ interface IGameRoom {
 export default function GameRoomList() {
   const { openModal } = useModal();
   const { data: gameRooms } = useGetGameRoomList();
-  console.log("gameRooms✅", gameRooms);
   const accessToken = localStorage.getItem("accessToken");
-  console.log(accessToken);
 
   const onClickModalOpen = () => {
     if (!accessToken || accessToken === null) {
