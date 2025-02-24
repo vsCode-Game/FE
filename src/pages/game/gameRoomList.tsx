@@ -22,7 +22,7 @@ export default function GameRoomList() {
 
   const onClickModalOpen = () => {
     if (!accessToken || accessToken === null) {
-      openModal("GamrRoomJoinConfirm", "white");
+      openModal("gameRoomJoinConfirm", "white");
     } else {
       openModal("makeRoom", "white");
     }

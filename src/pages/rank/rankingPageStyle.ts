@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 export const FullBox = styled.div`
   width: 400px;
   display: flex;

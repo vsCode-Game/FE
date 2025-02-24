@@ -12,6 +12,7 @@ import Home from "@pages/home/Home";
 import SignUpFinish from "@pages/user/signUp/SignUpFinish";
 import Error from "@pages/error/Error";
 import TestPage from "../pages/testpage/Testpage";
+import MyPage from "../pages/mypage/myScorePage/MyPage";
 
 export const router = createBrowserRouter([
   {
@@ -58,13 +59,20 @@ export const router = createBrowserRouter([
         ],
       },
       {
-        path: "/user/mypage/checkPassword",
-        element: <CheckPassword />,
+        path: "/user/mypage",
+        element: <MyPage />,
+        children: [
+          {
+            path: "checkPassword",
+            element: <CheckPassword />,
+          },
+          {
+            path: "updateMyPage",
+            element: <UpdateMyPage />,
+          },
+        ],
       },
-      {
-        path: "/user/mypage/updateMyPage",
-        element: <UpdateMyPage />,
-      },
+
       {
         path: "/test",
         element: <TestPage />,
