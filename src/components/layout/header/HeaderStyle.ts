@@ -11,6 +11,8 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   padding: 55px 30px 0;
   width: 100vw;
+  position: fixed;
+  top: 0;
 `;
 
 export const Logo = styled.h1`
