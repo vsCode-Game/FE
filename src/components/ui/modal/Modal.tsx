@@ -1,60 +1,53 @@
 import ModalPortal from "./ModalPortal";
 import { useModalStore } from "../../../store/useModalStore";
 import { Inside, ModalFrame, Overlay } from "./modalStyle";
-import { useEffect } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { useModal } from "@hooks/useModal";
 import { modalComponents } from "./modalComponent";
 
 export default function Modal() {
   const { showModal, currentModal, modalColor } = useModalStore();
   const { closeModal } = useModal();
+  const scrollYRef = useRef(0);
 
-  if (!showModal) return null;
+  if (!showModal || !currentModal) return null;
 
   useEffect(() => {
-    document.body.style.cssText = `
-      position: fixed; 
-      top: -${window.scrollY}px;
-      overflow-y: scroll;
-      width: 100%;`;
+    scrollYRef.current = window.scrollY;
+    document.body.style.overflow = "hidden";
+
     return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.cssText = "";
-      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
+      document.body.style.overflow = "auto";
+      window.scrollTo(0, scrollYRef.current);
     };
   }, []);
 
-  useEffect(() => {
-    const onKeydownEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        closeModal();
-      }
-    };
+  const onKeydownEscape = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    },
+    [closeModal],
+  );
 
+  useEffect(() => {
     document.addEventListener("keydown", onKeydownEscape);
 
     return () => {
       document.removeEventListener("keydown", onKeydownEscape);
     };
-  }, [closeModal]);
+  }, [onKeydownEscape]);
 
   return (
     <ModalPortal>
       <ModalFrame onClick={closeModal}>
-        {modalColor === "white" ? (
-          <Overlay onClick={closeModal}>
-            <Inside onClick={(e) => e.stopPropagation()} styleKey={modalColor}>
-              {currentModal ? modalComponents[currentModal] : null}
-            </Inside>
-          </Overlay>
-        ) : (
+        <Overlay modalColor={modalColor}>
           <Inside
             onClick={(e) => e.stopPropagation()}
             styleKey={modalColor as "white" | "blue"}
           >
-            {currentModal ? modalComponents[currentModal] : null}
+            {modalComponents[currentModal]}
           </Inside>
-        )}
+        </Overlay>
       </ModalFrame>
     </ModalPortal>
   );
