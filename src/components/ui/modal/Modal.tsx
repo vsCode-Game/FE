@@ -1,5 +1,5 @@
 import ModalPortal from "./ModalPortal";
-import { useModalStore } from "../../../store/useModalStore";
+import { useModalStore } from "@store/useModalStore";
 import { Inside, ModalFrame, Overlay } from "./modalStyle";
 import { useEffect, useCallback, useRef } from "react";
 import { useModal } from "@hooks/useModal";
