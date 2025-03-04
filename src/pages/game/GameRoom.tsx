@@ -389,7 +389,7 @@ export default function GameRoom() {
         >
           상대 플레이어
         </OtherProfileCard>
-        <ChattingBox />
+        <ChattingBox socket={socket} />
       </S.leftContainer>
       <S.centerContainer>
         <S.otherPlayerDeck></S.otherPlayerDeck>

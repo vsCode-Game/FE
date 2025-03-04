@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import heartImg from "../../../assets/images/icon_heart.svg";
 import Button from "../../../components/ui/button/Button";
 
-import { HeartImage, Message, Welcome, Wrapper } from "./finishStyle";
+import { HeartImage, Message, Welcome, Wrapper } from "./SignUpFinishStyle";
 
 export default function SignUpFinish() {
   const navigate = useNavigate();
