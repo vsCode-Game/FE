@@ -22,6 +22,10 @@ export interface ISignUpResponse {
   userNickname: string;
 }
 
+export interface IEmailCheckResponse {
+  available: boolean;
+}
+
 export const loginUser = async (logInfo: {
   userEmail: string;
   password: string;
@@ -75,10 +79,30 @@ export const signUpUser = async (
         "Content-Type": "application/json",
       },
     });
-    console.log(response);
     return response.data;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     throw new Error("회원가입에 실패했습니다.");
+  }
+};
+
+export const emailCheck = async (variables: {
+  userEmail: string;
+}): Promise<IEmailCheckResponse> => {
+  try {
+    const response = await instance.post<IEmailCheckResponse>(
+      "/user/email/check",
+      variables,
+      {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw new Error("이메일 중복체크에 실패했습니다.");
   }
 };

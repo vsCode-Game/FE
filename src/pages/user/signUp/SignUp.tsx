@@ -23,6 +23,14 @@ export default function SignUp() {
   const methods = useForm<signUpSchema>({
     resolver: zodResolver(schema),
     mode: "onBlur",
+    shouldUnregister: true,
+    defaultValues: {
+      userEmail: "",
+      password: "",
+      passwordConfirm: "",
+      userNickname: "",
+      profileImage: [],
+    },
   });
 
   const nextClickHandler = (targetStep: string) => {
@@ -36,7 +44,7 @@ export default function SignUp() {
   const onClickSubmit = async (data: signUpSchema) => {
     const { passwordConfirm, profileImage, ...formData } = data;
 
-    const result = mutation.mutate(formData);
+    const result = await mutation.mutate(formData);
     console.log(result);
 
     navigate("/user/signup/finish");
