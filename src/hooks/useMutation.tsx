@@ -7,9 +7,11 @@ import {
   outGameRoom,
 } from "../api/gameRoomApi";
 import {
+  IEmailCheckResponse,
   ILoginResponse,
   ISignUpResponse,
   ISignUpVariables,
+  emailCheck,
   loginUser,
   signUpUser,
 } from "../api/userAuthApi";
@@ -105,4 +107,18 @@ export const useSignUpSubmitMutation = () => {
       console.log(error.message);
     },
   });
+};
+
+export const useEmailCheckSubmitMutation = () => {
+  return useMutation<IEmailCheckResponse, Error, { userEmail: string }>(
+    emailCheck,
+    {
+      onSuccess: (data) => {
+        console.log(data);
+      },
+      onError: (error) => {
+        console.log(error.message);
+      },
+    },
+  );
 };

@@ -33,14 +33,15 @@ export const ModalFrame = styled.div`
   inset: 0;
 `;
 
-export const Overlay = styled.div`
+export const Overlay = styled.div<{ modalColor: string }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: ${({ modalColor }) =>
+    modalColor === "white" ? "rgba(0, 0, 0, 0.8)" : "rgba(255, 255, 255, 0)"};
 `;
 
 export const Inside = styled.div<{ styleKey: keyof typeof modalStyles }>`

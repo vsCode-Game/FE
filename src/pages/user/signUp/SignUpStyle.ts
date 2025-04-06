@@ -44,7 +44,7 @@ export const CurrentStep = styled.li`
   font-weight: 500;
 `;
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,7 +54,7 @@ export const FormWrapper = styled.div`
 export const FlexCol = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 36px;
   flex-grow: 1;
 `;
 
@@ -92,6 +92,7 @@ export const ButtonLabel = styled.label`
 export const ErrorMessage = styled.p`
   color: var(--color-warning);
   margin-top: 10px;
+  min-height: 14px;
 `;
 
 export const AgreeWrapper = styled.div`
