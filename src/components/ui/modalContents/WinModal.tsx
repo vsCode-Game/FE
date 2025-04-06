@@ -4,7 +4,7 @@ import winImage from "../../../assets/images/kissing_cat.svg";
 import { useModal } from "../../../hooks/useModal";
 import { useNavigate } from "react-router-dom";
 
-export default function WindModal() {
+export default function WinModal() {
   const { closeModal } = useModal();
 
   const navigate = useNavigate();
