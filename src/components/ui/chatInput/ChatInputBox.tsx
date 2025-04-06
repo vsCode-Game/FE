@@ -1,12 +1,9 @@
 import Button from "../button/Button";
 import * as S from "./chatInputStyle";
-import { useSocketStore } from "@store/useSocketStore";
 import { useEffect } from "react";
 // import { useParams } from "react-router-dom";
 
-export default function ChatInputBox() {
-  const { socket } = useSocketStore();
-
+export default function ChatInputBox({ socket }: { socket: any }) {
   useEffect(() => {
     if (!socket) {
       console.error("Socket is not connected.");
@@ -14,7 +11,7 @@ export default function ChatInputBox() {
     }
   }, []);
 
-  console.log("🚀 Socket:", socket);
+  console.log("🚀 Socket: ", socket);
 
   //   const [message, setMessage] = useState("");
   //   const params = useParams();

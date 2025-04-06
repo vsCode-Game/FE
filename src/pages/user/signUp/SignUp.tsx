@@ -1,4 +1,3 @@
-import Form from "@components/form/Form";
 import SignUpStep from "./SignUpStep";
 import { useFunnel } from "@hooks/useFunnel";
 import {
@@ -9,8 +8,9 @@ import {
   StepBasic,
   Stepper,
 } from "./SignUpStyle";
-import { SubmitHandler } from "react-hook-form";
-import { signUpSchema } from "./schema";
+import { FormProvider, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signUpSchema, schema } from "./schema";
 import { useSignUpSubmitMutation } from "@hooks/useMutation";
 import { useNavigate } from "react-router-dom";
 
@@ -20,6 +20,18 @@ export default function SignUp() {
   const { Funnel, Step, setStep, currentStep } = useFunnel(steps[0]);
   const mutation = useSignUpSubmitMutation();
   const navigate = useNavigate();
+  const methods = useForm<signUpSchema>({
+    resolver: zodResolver(schema),
+    mode: "onBlur",
+    shouldUnregister: true,
+    defaultValues: {
+      userEmail: "",
+      password: "",
+      passwordConfirm: "",
+      userNickname: "",
+      profileImage: [],
+    },
+  });
 
   const nextClickHandler = (targetStep: string) => {
     setStep(targetStep);
@@ -29,10 +41,10 @@ export default function SignUp() {
     setStep(targetStep);
   };
 
-  const onSubmit: SubmitHandler<signUpSchema> = async (data) => {
+  const onClickSubmit = async (data: signUpSchema) => {
     const { passwordConfirm, profileImage, ...formData } = data;
 
-    const result = mutation.mutate(formData);
+    const result = await mutation.mutate(formData);
     console.log(result);
 
     navigate("/user/signup/finish");
@@ -55,19 +67,8 @@ export default function SignUp() {
             </>
           )}
         </Stepper>
-        <Form<FormData>
-          onSubmit={onSubmit}
-          formOptions={{
-            defaultValues: {
-              userEmail: "",
-              password: "",
-              passwordConfirm: "",
-              userNickname: "",
-              profileImage: [""],
-            },
-          }}
-        >
-          <FormWrapper>
+        <FormProvider {...methods}>
+          <FormWrapper onSubmit={methods.handleSubmit(onClickSubmit)}>
             <SignUpStep
               steps={steps}
               nextClickHandler={nextClickHandler}
@@ -76,7 +77,7 @@ export default function SignUp() {
               Step={Step}
             />
           </FormWrapper>
-        </Form>
+        </FormProvider>
       </SignUpSection>
     </>
   );
