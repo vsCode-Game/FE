@@ -151,6 +151,7 @@ export default function GameRoom() {
   const [opponentIndex, setOpponentIndex] = useState<number>();
   const [message, setMessage] = useState<string>();
   const [wrongIndex, setWrongIndex] = useState<number>();
+  const [result, setResult] = useState();
 
   console.log(
     "타입에러방지용 콘솔",
@@ -339,8 +340,16 @@ export default function GameRoom() {
       setOpponentColor(opponentFinalHand);
     });
     socket.on("gameOver", (data) => {
-      console.log(data);
+      console.log(data, "이게 게임 오버야?");
+      const { result } = data;
+      setResult(result);
+      // if (result === "win") {
+      //   openModal("win", "blue");
+      // } else if (result === "lose") {
+      //   openModal("lose", "blue");
+      // }
     });
+
     socket.on("opponentColorArrayRevealed", (data) => {
       console.log(data);
     });
@@ -359,6 +368,14 @@ export default function GameRoom() {
       openModal("myTurn", "white");
     }
   }, [turnId]);
+
+  useEffect(() => {
+    if (result === "win") {
+      openModal("win", "blue");
+    } else if (result === "lose") {
+      openModal("lose", "blue");
+    }
+  }, [result]);
 
   const handleMyReady = () => {
     setMyReady((prev) => !prev);

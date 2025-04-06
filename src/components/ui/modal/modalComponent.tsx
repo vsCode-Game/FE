@@ -6,6 +6,8 @@ import GameWaiting from "../modalContents/GameWaiting";
 import Alert from "../modalContents/Alert";
 import GuessNumber from "../selectionNumber/GuessNumber";
 import SelectTurn from "../modalContents/SelectTurn";
+import WindModal from "../modalContents/winModal";
+import LoseModal from "../modalContents/loseModal";
 
 export const modalComponents: Record<string, React.ReactNode> = {
   firstSelect: <FirstSelect />,
@@ -19,4 +21,6 @@ export const modalComponents: Record<string, React.ReactNode> = {
   ),
   guessNumber: <GuessNumber />,
   myTurn: <BigDeck />,
+  win: <WindModal />,
+  lose: <LoseModal />,
 };
