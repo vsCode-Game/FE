@@ -154,7 +154,6 @@ export default function GameRoom() {
   const [result, setResult] = useState();
 
   console.log(
-    "타입에러방지용 콘솔",
     arrangeCard,
     fieldDeck,
     opponent,
