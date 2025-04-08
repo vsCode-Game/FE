@@ -26,7 +26,7 @@
 
 
 ## 📺 게임플레이
-...
+![2025-04-08 14-05-54](https://github.com/user-attachments/assets/04af9fe3-2ddd-412a-b244-7f7aa7fe05dd)
 
 ## 🤗 맡은 역할
 
